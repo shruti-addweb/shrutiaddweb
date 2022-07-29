@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style type="text/css">
+    *
+    {
+        margin: 0;
+        padding: 0;
+    }
+    .logo
+    {
+        width: 20%;
+        display: flex;
+        
+    }
+    .logo img
+    {
+        width: 33%;
+        border: 3px solid white;
+        border-radius: 50px;
+        margin: 15px;
+    }
+    .navbar
+    {
+        display: flex;
+        position: sticky;
+        top:0;
+        cursor: pointer;
+
+    }   
+    .nav-list
+    {
+        width: 50%;
+        padding-left: 72px;
+        display: flex;
+        
+    }
+    .nav-list li
+    {
+        list-style: none;
+        padding: 23px 40px;
+
+    }
+    .nav-list li a
+    {
+        text-decoration: none;
+        color: white;
+    }
+    .nav-list li a:hover
+    {
+        
+        color: blue;
+    }
+    .background
+    {
+        background:url('img/bg1.jpeg');
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+    .firstsection
+    {
+        height: 73vh;
+    }
+    .box1
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        max-width: 70%;
+        margin: auto;
+        height: 80%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+    }
+    .firsthalf
+    {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .text-big
+    {
+        font-size: 40px;
+        font-family:Arial, Helvetica, sans-serif;
+        color: blue;
+        
+    }
+    .text-big1
+    {
+        font-size: 35px;
+        font-family:Arial, Helvetica, sans-serif;
+        color: blue;
+        padding-bottom: 10px;
+        padding-top: 20px;
+        
+    }
+    .text-small
+    {
+        font-size: 12px;
+    }
+    .btn
+    {
+        padding: 8px 20px;
+        margin: 7px 3px;
+        border: 2px solid white;
+        border-radius: 8px;
+        background: orange;
+        color: black;
+        cursor: pointer;
+    }
+    .btn1
+    {
+        padding: 8px 20px;
+        margin: 7px 3px;
+        border: 2px solid white;
+        border-radius: 8px;
+        background: white;
+        color: black;
+        cursor: pointer;
+    }
+    .btn-sm
+    {
+        padding: 6px 10px;
+        vertical-align: middle;
+        
+    }
+    .section
+    {
+        height: 300px;
+        width: 100%;
+    
+    }
+    .w
+    {
+        width: 100%;
+        text-align: center;
+        
+    }
+    .img
+    {
+        display: flax;
+        width: 100%;
+    }
+    .img1 
+    {
+        height: 70px;
+        width: 100px;
+        
+    }
+    .table
+    {
+       padding-left: 682px;
+       margin: 12px;
+    }
+    table th
+    {
+      padding: 10px;   
+    }
+    .aboutus
+    {
+        height: 500px;
+        width: 100%;
+    }
+    .box2
+    {
+        display: flex;
+    justify-content: center;
+   
+    color: white;
+    
+    height: 30%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 68px; 
+    }
+    .background1
+    {
+        background:url('img/bg.jpeg');
+        background-size: 1835px 500px;
+        background-blend-mode: darken;
+        background-repeat: no-repeat;
+    }
+    .firsthalf1
+    {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .text-small1
+    {
+        font-size: 16px;
+        margin: 19px;
+        
+    }
+    .overbird
+    {
+        height: 200px;
+        width: 100%;
+        background: white;
+        padding: 28px;
+    }
+    .images
+    {
+        height: 900px;
+        width: 100%;
+        background: lightgrey;
+    }
+    .image-grid 
+    {
+    --gap: 16px;
+    --num-cols: 4;
+    --row-height: 300px;
+    box-sizing: border-box;
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-auto-rows: var(--row-height);
+    gap: var(--gap);
+    }
+
+    .image-grid > img 
+    {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+
+    .image-grid-col-2 
+    {
+    grid-column: span 2;
+    }
+
+    .image-grid-row-2 
+    {
+    grid-row: span 2;
+    }
+
+
+    @media screen and (max-width: 1024px) 
+    {
+        .image-grid 
+        {
+        --num-cols: 2;
+        --row-height: 200px;
+        }
+    }
+    .work
+    {
+        height: 400px;
+        width: 100%;
+        background: url("img/birdbg.jpeg");
+    }
+    
+    .p2
+    {
+        color: white;
+    }
+    .p3
+    {
+        color: white;
+    }
+    .col 
+    {
+        flex-basis: 44%;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        text-align: left;
+        background: black;
+        padding: 19px;
+        cursor: pointer;
+        display: flex;
+        width: 383px;
+        margin-left: 721px;
+        margin-top: 36px;
+    }
+    .col img
+    {
+ 
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 30px;
+    border-radius: 5%;
+    }
+    .sub
+    {
+        background-color: black;
+        height: 100px;
+        width: 100%;
+    }
+    .pad
+    {
+        padding: 10px;
+       
+    }
+    .cta
+    {
+    margin: 100px auto;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.7),
+    rgba(0,0,0,0.7)),url("img/map.png");
+    
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px ;
+    }
+    .cta h1
+    {
+    color:#fff;
+    margin-bottom: 40px;
+    padding: 0;
+    }
+    @media(max-width:700px)
+    {
+        .cat h1
+        {
+
+        font-size: 24px;
+        }
+    }
+
+    .footer
+    {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    }
+    .footer{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+    }
+    .icons img{
+    color:#f44336;
+    margin:0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+    }
+    .cta table:hover
+    {
+    box-shadow: 0 0 40px 0.4px rgba(0,0,0,0.5); 
+    }
+
+        
+   </style>
+</head>
+<body>
+    <nav class="navbar background">
+        <ul class="nav-list">
+            <div class="logo"><img src="img/logo.jpeg" alt="birdlogo"</div>
+            <li><a href="#home">home</a></li>
+            <li><a href="#aboutus">about us</a></li>
+            <li><a href="#donate">donate</a></li>
+            <li><a href="#birds">birds</a></li>
+            <li><a href="#contactus">contact us</a></li>
+        </ul>
+
+    </nav>
+    <section class="background firstsection " id="home">
+        <div class="box1">
+            <div class="firsthalf">
+                <p class="text-big">Save Bird<br>Save Animals</p>
+                <p class="text-small">there are many variations of passages of lorem ipsum available, but the majarity have suffered alteration</p>
+            <div class="button">
+                <button class="btn">About Us:</button>
+                <button class="btn1">Donate</button>
+            </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="section donate">
+        <div class="w">
+        <p class="text-big1">New Arrival</p>
+        <p class="text-small">There are many variations of passages of leorem ipsum available, but the majority have suffered aiteration <br>there are many variations of passages of lorem ipsum available, but the majority have suffered </p>
+        </div>
+        <table class="table">
+        <div class="img">
+            <tr>
+                <th>
+                    <figure>
+                        <img src="img/b1.jpeg" alt="bird" class="img1">
+                        <figcaption>bird</figcaption>
+                    </figure>
+                </th>
+                <th>
+                    <figure>
+                        <img src="img/b2.jpeg" alt="lion" class="img1">
+                        <figcaption>lion</figcaption>
+                    </figure>
+                </th>
+                <th>
+                    <figure>
+                        <img src="img/b3.jpg" alt="deer" class="img1">
+                        <figcaption>deer</figcaption>
+                    </figure>
+                </th>
+                <th>
+                    <figure>
+                        <img src="img/b4.jpeg" alt="dove" class="img1">
+                        <figcaption>dove</figcaption>
+                    </figure>
+                </th>
+        </tr>
+        </div>
+        </table>
+    </section>
+    <section class="background1 aboutus " id="aboutus">
+        <div class="box2">
+            <div class="firsthalf1">
+                <p class="text-big">About over birds</p>
+                <p class="text-small1">there are many variations of passages of lorem ipsum available, <br>but the majarity have suffered alteration<br>
+                    there are many variations of passages of lorem ipsum available<br>, but the majarity have suffered alteration<br>
+                    there are many variations of passages of lorem ipsum available, <br>but the majarity have suffered alteration<br>
+                    there are many variations of passages of lorem ipsum available,<br> but the majarity have suffered alteration<br>
+                </p>
+            <div class="button">
+                <button class="btn">Read More:</button>
+               
+            </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="overbird birds">
+        <h1 style="text-align:center; padding-bottom: 10px; color: blue;">Over Birds And Animals</h1>
+        <h3 style="text-align:center;">there are many variations of passages of lorem ipsum available<br>, but the majarity have suffered alteration<br></h3>
+
+    </div>
+    <section class="birds">
+    <div class="images" >
+        <div class="image-grid ">
+            <img class="image-grid-col-2 image-grid-row-2" src="img/b1.jpeg" alt="architecture">
+            <img src="img/b2.jpeg" alt="architecture">
+            <img src="img/b3.jpg" alt="architecture">
+            <img src="img/b4.jpeg" alt="architecture">
+            <img src="img/b5.jpeg" alt="architecture">
+            </div>
+
+
+    </div>
+    </section>
+    <div class="work">
+
+        <h1 align="center"style="margin-top:10px; padding-top: 10px;">Testimonial</h1>
+       
+        
+        <div class="col">
+            <img src="img/e.jpg">
+            <div>
+            
+            <h3 class="p2">Chairstine Berkley</h3><br>
+            <p class="p3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Pariatur recusandae possimus consequuntur modi aut mollitia
+            deleniti fugit illum quae ipsam commodi quasi aliquam.</p>
+          
+            </div>
+            </div>
+
+    </div>
+    <div class="sub">
+        <form align="center">
+            <label style="color: white; font-size: 30px;">Subscribe over newsletter</label><br>
+            <br>
+            <div class="pad">
+            <input type="email" name="email" id="email" placeholder="enter your email" />
+            <button name="btn" value="subscribe">Subscribe</button>
+            </div>
+        </form>
+
+    </div>
+    <div style="background-color: white;">
+        <h1 style="color: blue; text-align: center; margin-top: 50px; font-size: 40px;">Request a call back</h1><br>
+    </div>
+    <section class="cta">
+        <table style="background-color: white ; border-radius: 10px; margin: 650px; margin-bottom: 1px; height: 200px; width: 400px;" >
+            <tr>
+                <th>
+                    <form style="line-height: 2px;">
+                        
+                        <input type="text" name="name" id="name" placeholder="name"><br>
+                        <input type="email" name="email" id="email" placeholder="email"><br>
+                        <input type="text" name="messages" id="messages" placeholder="messafes"><br>
+                        <input type="tel" name="phone" id="phone" placeholder="phone number"><br>
+                        <button name="btn" class="btn" id="btn">Send</button>
+                    </form>
+                </th>
+                <th>
+                    this is location
+                    <br>
+                    646738393993
+                    <br>
+                    hhgg@gmail.com
+                </th>
+            </tr>
+        </table>
+        
+        
+        </section>
+        
+        <section class="footer contactus">
+            
+            <div class="icons">
+            <img src="img/fb.png">
+            <img src="img/in.png">
+            <img src="img/fb.png">
+            <img src="img/in.png">
+            </div>
+            <p>fdwfdywfdeyfdjeyhfdjwyguyyfytfjyt</p>
+            
+            </section>
+
+
+</body>
+</html>

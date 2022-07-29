@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <style>
+            
+            
+            .text
+            {
+                width: 80%;
+                height: 50%;
+                background-color: burlywood;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 100px;
+                padding: 20px;
+                padding-top: 10px;
+                text-align: center;
+            }
+            label 
+            {
+                display: block;
+	            margin: 0.5rem 0;
+            }
+            form 
+            {
+                width: 60vw;
+	            max-width: 500px;
+	            min-width: 300px;
+	            margin: 0 auto;
+                padding-bottom: 2em;
+            }
+            
+
+
+        </style>
+        <body> 
+            <form method="get" action="" id="form">
+               
+                <div class="text"
+                     <label>Name:</label><br>
+                     <input type="text" name="name" id="name" placeholder="enter your name" required/>
+                     <label>Password</label>
+                     <input type="password" name="pass" id="pass" placeholder="enter password" required/>
+                     <label>Gender</label>
+                     <input type="radio" name="radio1" id="radio1" value="Male" />Male
+                     <input type="radio" name="radio1" id="radio2" value="Female" />Female
+                     <label>Date of birth</label>
+                     <input type="date" name="db1" id="db1" />
+                     <label>Phone number</label>
+                     <input type="number" name="pno" id="pno"/>
+                     <label>Address</label>
+                     <textarea rows="3" cols="15"></textarea>
+                     <label>Hobbie</label>
+                     <input type="checkbox" name="check1" id="check1" value="singing" />singing
+                     <input type="checkbox" name="check2" id="check2" value="travelling" />travelling
+                     <input type="checkbox" name="check3" id="check3" value="dancing" />dancing 
+                     <label>Colour</label>
+                     <input type="color" name="favcolor" value="#FFC0CB">
+                     <select id="dropdown" value="dropdown">
+                        <option>SELECT COUNTRY</option>
+                        <option>INDIA</option>
+                        <option>USA</option>
+                        <option>ENGLAND</option>
+                     </select>
+                     <input type="submit" name="submit" id="submit" value="submit" />
+                     <input type="reset" name="reset" id="reset" value="reset" />
+                     <input type="image" src="img3.jpeg" width="50" height="20"/>
+                     <button name="btn1" id="btn1" value="clickme">clickme</button>
+            
+            </form>
+        </body>
+    </head>
+</html>
