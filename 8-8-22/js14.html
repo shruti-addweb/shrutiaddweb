@@ -1,0 +1,38 @@
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>armstrong</title>
+   </head>
+   <body>
+   
+       <script type="text/javascript">
+          function arm() {
+           let num = document.getElementById('myNo').value
+           let result = 0;
+           let Digit;
+           n =num;
+           while(n != 0)
+           {
+           Digit = n % 10;
+           result += Digit* Digit* Digit;
+           n = Math. floor(n/10);
+           }
+           if(result == num)
+           document.getElementById('result').innerHTML = "Number is a armstrong";
+   
+           else
+           document.getElementById('result').innerHTML = "Number is not a armstrong";
+   
+           }
+       </script>
+       <p>Enter the A: <input type="text" name="text" id="myNo"></p>
+       <p><button onclick="arm()">Clickme!</button></p>
+       <p id="result"></p>
+   
+    </body>
+    </html>
+       

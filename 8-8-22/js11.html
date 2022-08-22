@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>largest and smallest</title>
+
+    <script type="text/javascript">
+        function myfunction()
+       {
+       let a = parseInt(document.getElementById('myNo').value);
+       let b = parseInt(document.getElementById('myNo1').value);
+       let c = parseInt(document.getElementById('myNo2').value);
+
+
+     
+       if( a > b && a > c)
+        {
+            document.getElementById('result').innerHTML = " Number 1 is largest " +a;
+        }
+        if (b > c && b > a)
+        {
+            document.getElementById('result').innerHTML = " Number 2 is largest " +b;
+        }
+        if ( c > a && c > b)
+        {
+            document.getElementById('result').innerHTML = " Number 3 is largest "+c;
+
+        }
+
+
+       
+       }
+   </script>
+</head>
+<body>
+    <p>Enter number 1:<input type="text" name="text" id="myNo"></p>
+    <p>Enter number 2:<input type="text" name="text" id="myNo1"></p>
+    <p>Enter number 2:<input type="text" name="text" id="myNo2"></p>
+
+
+       
+   <p><button onclick="myfunction()">Clickme!</button></p>
+   <p id="result"></p>
+ </body>
+ </html>
+   

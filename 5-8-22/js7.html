@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin to rs</title>
+    <script type="text/javascript">
+       function myfunction()
+        {
+        let a = document.getElementById('myNo').value;
+        let cp = document.getElementById('myNo1').value;
+        let pr,ls;
+        pr = sp-cp;
+        ls = cp-sp;
+        
+      
+        document.getElementById('result').innerHTML = "loss amount " +ls+ "profit amount " +pr;
+        }
+        </script>
+        
+</head>
+<body>
+   
+    <p>Enter the number: <input type="text" name="text" id="myNo"></p>
+    <p>Enter the number: <input type="text" name="text" id="myNo1"></p>
+
+        
+    <p><button onclick="myfunction()">Clickme!</button></p>
+    <p id="result"></p>
+</body>
+</html>

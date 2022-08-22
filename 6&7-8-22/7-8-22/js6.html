@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>area of triangle</title>
+
+    <script type="text/javascript">
+        function myfunction()
+       {
+       let a = parseInt(document.getElementById('myNo').value);
+       let b = parseInt(document.getElementById('myNo1').value);
+       let c = parseInt(document.getElementById('myNo2').value);
+
+        let  s = parseInt((a + b + c) / 2);
+        let area =Math.sqrt((s * (s - a) * (s - b) * (s - c)));
+        document.getElementById('result').innerHTML = "percentage of marks " +area;
+       }
+    </script>
+</head>
+<body>
+   
+    <p>Enter number:<input type="text" name="text" id="myNo"></p>
+    <p>Enter number:<input type="text" name="text" id="myNo1"></p>
+    <p>Enter number:<input type="text" name="text" id="myNo2"></p>
+        
+   <p><button onclick="myfunction()">Clickme!</button></p>
+   <p id="result"></p>
+ </body>
+ </html>
+   

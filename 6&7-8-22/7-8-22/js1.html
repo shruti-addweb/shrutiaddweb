@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum</title>
+
+    <script type="text/javascript">
+        function myfunction()
+       {
+       let a = parseInt(document.getElementById('myNo').value);
+       let b = parseInt(document.getElementById('myNo1').value);
+       let c = parseInt(a + b);
+
+       
+       
+           document.getElementById('result').innerHTML = "sum of two number " +c;
+       }
+   </script>
+</head>
+<body>
+    <p>Enter number 1:<input type="text" name="text" id="myNo"></p>
+    <p>Enter number 2:<input type="text" name="text" id="myNo1"></p>
+
+       
+   <p><button onclick="myfunction()">Clickme!</button></p>
+   <p id="result"></p>
+ </body>
+ </html>
+   

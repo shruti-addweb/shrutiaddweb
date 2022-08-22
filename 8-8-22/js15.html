@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bill</title>
+</head>
+<body>
+<script type="text/javascript">
+function myfun(){
+let amount;
+let unit =document.getElementById('myNo').value;
+let fix=100;
+if(unit<=50) {
+document.write("bil amount is"+amount);
+}
+else if(unit>=51 && unit<=100){
+amount=fix+1*(unit-50);
+document.write("bil amount is"+amount);
+}
+else if(unit>=101 && unit<=200){
+amount=fix+1.5*(unit-50);
+document.write("bil amount is"+amount);
+}
+else if(unit>=201 && unit<=300){
+amount=fix+2*(unit-50);
+document.write("bil amount is"+amount);
+}
+else{
+amount=fix+2.5*(unit-50);
+document.write("bil amount is"+amount);
+}
+}
+</script>
+<p>Enter the A: <input type="text" name="text" id="myNo"></p>
+<p><button onclick="myfun()">Clickme!</button></p>
+<p id="result"></p>
+</body>
+</html>

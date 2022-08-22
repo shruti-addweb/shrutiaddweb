@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sphere</title>
+
+    <script type="text/javascript">
+        function myfunction()
+       {
+       let a = parseInt(document.getElementById('myNo').value);
+       let pi= parseFloat(3.14);
+       let c = parseFloat(4 * pi * a * a);
+       let d = parseFloat(4.0/3 * pi * a * a * a);
+
+       
+       
+           document.getElementById('result').innerHTML = " surface area of sphere is  " +c+ " volume of sphere is  " +d;;
+
+       }
+   </script>
+</head>
+<body>
+    <p>Enter radius of sphere:<input type="text" name="text" id="myNo"></p>
+
+       
+   <p><button onclick="myfunction()">Clickme!</button></p>
+   <p id="result"></p>
+ </body>
+ </html>
+   

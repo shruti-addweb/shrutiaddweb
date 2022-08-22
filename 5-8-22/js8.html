@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marks</title>
+    <script>
+        function myfunction()
+        {
+        let a = document.getElementById('myNo').value;
+        let b = document.getElementById('myNo1').value;
+        let c = document.getElementById('myNo2').value;
+        let tol,per,pr;
+       tol = a + b + c;
+       per = tol/300 * 100;
+       if ( per > 80)
+       {
+            pr = "Grade A";
+       }
+       else if (pr > 60)
+       {
+            pr = "Grade B";
+       }
+       else if (pr > 50)
+       {
+        pr = "Grade C";
+
+       }
+       else
+       {
+        pr ="work hard"
+       }
+       document.getElementById('result').innerHTML = pr;
+
+
+        }
+    </script>
+</head>
+<body>
+    <p>Enter the maths marks out of 100: <input type="text" name="text" id="myNo"></p>
+    <p>Enter the sci marks out of 100: <input type="text" name="text" id="myNo1"></p>
+    <p>Enter the eng marks out of 100: <input type="text" name="text" id="myNo2"></p>
+
+        
+    <p><button onclick="myfunction()">Clickme!</button></p>
+    <p id="result"></p>
+</body>
+</html>

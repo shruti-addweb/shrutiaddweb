@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hr min sec to sec</title>
+    <script>
+        function time()
+        {
+            let hr, sec ,time,time1, min,ANS;
+            
+           hr= 1;
+           min= 20;
+           sec=20
+          time=hr*3600;
+          time1=min*60;
+          ANS = time+time1+sec;
+
+
+            
+            document.getElementById("demo").innerHTML ="answer of : " +ANS;
+
+        }
+    </script>
+</head>
+<body>
+    <h1>convert sec to min hr and sec</h1>
+    <p id="demo"></p>
+
+    <button onclick="time()">on click</button>
+   
+
+</body>
+</html>

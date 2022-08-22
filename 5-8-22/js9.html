@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marks</title>
+    <script>
+        function myfunction()
+        {
+        let a = document.getElementById('myNo').value;
+        let pr;
+        if ( a >= "a" && a <= "z")
+       {
+            pr = "is a lower";
+       }
+       else if ( a >= "A" && a <= "Z")
+       {
+            pr = "is a upper case";
+       }
+       
+       else
+       {
+        pr ="digital"
+       }
+       document.getElementById('result').innerHTML = pr;
+
+
+        }
+    </script>
+</head>
+<body>
+    <p>Enter Letter <input type="text" name="text" id="myNo"></p>
+
+        
+    <p><button onclick="myfunction()">Clickme!</button></p>
+    <p id="result"></p>
+</body>
+</html>

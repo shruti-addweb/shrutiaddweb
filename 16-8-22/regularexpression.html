@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Regular Expressions</h2>
+
+
+<p id="demo"></p>
+
+<script>
+let text = "i used for case sensative .match is a method used for match";
+let pattern = /method/i;
+let result = text.match(pattern);
+document.write (result);
+
+let text1 = "search method is used to show poisition of string from 0 "; 
+let n = text1.search("poisition");
+document.write(n);
+
+let text2 = "replace is used for to replace word hello";
+let result1 = text2.replace("hello", "thanks");
+document.write (result1);
+
+let text3 = 'is this all';
+
+let pattern1 = /^is/g;
+let result2 = text3.match(pattern1);
+document.write (result2);
+
+let reg =/shruti/g; // g is used for global search
+document.write (reg);
+
+let s = "this is shruti example shruti <br>";
+// exec() This function will return an array for match or null for no match
+let r = reg.exec(s);
+document.write (r);
+r = reg.exec(s);
+document.write(r);
+
+document.write(s.input);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>percentage</title>
+
+    <script type="text/javascript">
+        function myfunction()
+       {
+       let a = parseInt(document.getElementById('myNo').value);
+       let b = parseInt(document.getElementById('myNo1').value);
+       let d = parseInt(document.getElementById('myNo2').value);
+       let e = parseInt(document.getElementById('myNo3').value);
+       let f = parseInt(document.getElementById('myNo4').value);
+
+       let c = parseInt(a + b + d + e + f);
+       let per = parseInt((c / 500)*100);
+
+       
+       
+           document.getElementById('result').innerHTML = "percentage of marks " +per;
+       }
+   </script>
+</head>
+<body>
+    <h2>Enter marks out of 100</h2>
+    <p>Enter mark of english:<input type="text" name="text" id="myNo"></p>
+    <p>Enter mark of science:<input type="text" name="text" id="myNo1"></p>
+    <p>Enter mark of computer:<input type="text" name="text" id="myNo2"></p>
+    <p>Enter mark of gujarati:<input type="text" name="text" id="myNo3"></p>
+    <p>Enter mark of social science:<input type="text" name="text" id="myNo4"></p>
+
+
+       
+   <p><button onclick="myfunction()">Clickme!</button></p>
+   <p id="result"></p>
+ </body>
+ </html>
+   

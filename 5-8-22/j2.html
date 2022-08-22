@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time hr sec</title>
+   <script>
+    function myfunction()
+    {
+        let sec, hr, min, remainsec;
+        sec=3610;
+        hr = Math.floor(sec/3600);
+        min = Math.floor(sec%3600/60);
+        remainsec = Math.floor(sec%3600%60);
+        document.getElementById("demo").innerHTML ="answer of hr : " + hr + "answer of min : " + min + "answer of remain sec : " + remainsec;  
+
+    }
+   </script>
+</head>
+<body>
+    <h1>convert sec to min hr and sec</h1>
+    <p id="demo"></p>
+
+    <button onclick="myfunction()">on click</button>
+    
+</body>
+</html>

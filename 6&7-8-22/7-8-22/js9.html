@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse 4 digit</title>
+    <script type="text/javascript">
+        function myfunction()
+       {
+        let n = parseInt(document.getElementById('myNo').value);
+        let f= parseInt(n/1000);  
+        let x= parseInt(n%1000);
+       let s= parseInt(x/100);
+        let y= parseInt (x%100);
+       let t= parseInt(y/10);
+        let l= parseInt(y%10);
+        let rev= parseInt(l*1000+t*100+s*10+f);
+
+        document.getElementById('result').innerHTML = "Answer of reverse number  " +rev;
+
+       }
+
+    </script>
+</head>
+<body>
+    <p>Enter 4 digit number:<input type="text" name="text" id="myNo"></p>
+    
+    <p><button onclick="myfunction()">Clickme!</button></p>
+    <p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin to rs</title>
+    <script type="text/javascript">
+        function myfunction()
+        {
+        let amount = document.getElementById('myNo').value;
+        let a,b,c,d,e,f,g,h,i,j,k,l;        
+        a=amount/100;
+        
+        c=amount/50;
+     
+        e=amount/10;
+      
+        g=amount/20;
+    
+        i=amount/5;
+    
+        k=amount/2;
+      
+        document.getElementById('result').innerHTML = "100 notes " +a+  " 50 notes " +c+ " 10 notes " +e+ " 20 notes " +g+ " 5 notes " +i+ " 2 notes " +k ;
+        }
+        </script>
+        
+</head>
+<body>
+   
+    <p>Enter the number: <input type="text" name="text" id="myNo"></p>
+        
+    <p><button onclick="myfunction()">Clickme!</button></p>
+    <p id="result"></p>
+</body>
+</html>

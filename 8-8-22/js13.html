@@ -1,0 +1,37 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>plaidrome</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+       function revers() {
+        let num = document.getElementById('myNo').value
+        let rev = 0;
+        let lastDigit;
+        n =num;
+        while(num != 0)
+        {
+        lastDigit = num % 10;
+        rev = rev * 10 + lastDigit;
+        num = Math. floor(num/10);
+        }
+        if(n == rev)
+        document.write ("Number is a palindrome");
+
+        else
+        document.write ("Number is not a palindrome");
+
+        }
+    </script>
+    <p>Enter the A: <input type="text" name="text" id="myNo"></p>
+    <p><button onclick="revers()">Clickme!</button></p>
+    <p id="result"></p>
+
+ </body>
+ </html>
+    

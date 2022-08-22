@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 digit into 3 digit</title>
+
+    <script type="text/javascript">
+        function myfunction()
+       {
+       let a = parseInt(document.getElementById('myNo').value);
+       
+       let n = parseInt(a * 10 + a  + 1);
+       let  c = parseInt(n * 10 + a + 2);
+       
+       
+           document.getElementById('result').innerHTML = "sum of two number " +c;
+       }
+   </script>
+</head>
+<body>
+    <p>Enter single digit number 1 to 7 :<input type="text" name="text" id="myNo"></p>
+   
+
+       
+   <p><button onclick="myfunction()">Clickme!</button></p>
+   <p id="result"></p>
+ </body>
+ </html>
+   
