@@ -1,0 +1,2170 @@
+*****Q2**********************************
+select deptno,deptinfo from employee where deptno=607;
++--------+----------+
+| deptno | deptinfo |
++--------+----------+
+|    607 | pa       |
+|    607 | pa       |
++--------+----------+
+2 rows in set (0.002 sec)
+
+****Q3**************************************
+ select ename,deptno,deptinfo from employee where deptinfo='clerk';
++--------+--------+----------+
+| ename  | deptno | deptinfo |
++--------+--------+----------+
+| mohan  |    604 | clerk    |
+| umiaya |    604 | clerk    |
+| krina  |    604 | clerk    |
+| kritu  |    604 | clerk    |
+| chintu |    604 | clerk    |
+| ginal  |    604 | clerk    |
+| jinal  |    604 | clerk    |
++--------+--------+----------+
+7 rows in set (0.012 sec)
+
+****Q4*****************************
+select deptno,deptinfo from employee where deptno>604;
++--------+----------------------+
+| deptno | deptinfo             |
++--------+----------------------+
+|    605 | developer            |
+|    605 | developer            |
+|    605 | developer            |
+|    605 | developer            |
+|    605 | developer            |
+|    605 | developer            |
+|    605 | developer            |
+|    605 | developer            |
+|    605 | designer             |
+|    606 | project co-ordinater |
+|    606 | project co-ordinater |
+|    606 | project co-ordinater |
+|    606 | project co-ordinater |
+|    606 | project co-ordinater |
+|    606 | project co-ordinater |
+|    607 | pa                   |
+|    607 | pa                   |
++--------+----------------------+
+17 rows in set (0.001 sec)
+
+*****Q5******************************************
+
+select ename,deptinfo,salary,camount from employee where camount>salary; 
++-------+----------------------+--------+---------+
+| ename | deptinfo             | salary | camount |
++-------+----------------------+--------+---------+
+| lanu  | project co-ordinater |  10000 |   15000 |
++-------+----------------------+--------+---------+
+1 row in set (0.001 sec)
+
+
+****Q6***************************************
+
+select camount,salary from employee where camount>(salary/100*60);
++---------+--------+
+| camount | salary |
++---------+--------+
+|   15000 |  10000 |
++---------+--------+
+1 row in set (0.012 sec)
+
+******Q7**********************************
+
+select ename,deptinfo,salary,deptno from employee where deptno=604 and salary>5000; 
++--------+----------+--------+--------+
+| ename  | deptinfo | salary | deptno |
++--------+----------+--------+--------+
+| mohan  | clerk    |   6000 |    604 |
+| kritu  | clerk    |  10000 |    604 |
+| chintu | clerk    |   9000 |    604 |
+| ginal  | clerk    |   9000 |    604 |
+| jinal  | clerk    |   6000 |    604 |
++--------+----------+--------+--------+
+5 rows in set (0.001 sec)
+
+******Q8*********************************************
+
+ select deptinfo,salary deptno from employee where deptno=601 and salary>7000; 
++----------+--------+
+| deptinfo | deptno |
++----------+--------+
+| manager  |  35000 |
+| manager  |  65000 |
+| manager  |  55000 |
++----------+--------+
+3 rows in set (0.001 sec)
+
+*******Q9*********************************************
+
+select deptinfo,ename from employee where deptinfo='hr' or deptinfo='salesman';
++----------+--------+
+| deptinfo | ename  |
++----------+--------+
+| hr       | sanket |
+| hr       | saloni |
+| hr       | sanu   |
+| hr       | bina   |
+| hr       | brida  |
+| hr       | sita   |
++----------+--------+
+6 rows in set (0.001 sec)
+
+*******Q10*********************************************
+select deptno,ename,salary,deptinfo from employee where deptno='605';
++--------+---------+--------+-----------+
+| deptno | ename   | salary | deptinfo  |
++--------+---------+--------+-----------+
+|    605 | shivam  |  15000 | developer |
+|    605 | shnehal |  15000 | developer |
+|    605 | nehal   |  15000 | developer |
+|    605 | menal   |   9000 | developer |
+|    605 | renu    |  20000 | developer |
+|    605 | suraj   |  50000 | developer |
+|    605 | ronak   |  27000 | developer |
+|    605 | rima    |  37000 | developer |
+|    605 | rima    |  37000 | designer  |
++--------+---------+--------+-----------+
+9 rows in set (0.001 sec)
+
+
+*******Q11*********************************************
+
+select deptno,ename,salary,deptinfo from employee where deptno in (601,602) ;
++--------+-------+--------+----------+
+| deptno | ename | salary | deptinfo |
++--------+-------+--------+----------+
+|    601 | setu  |   7000 | manager  |
+|    602 | uvesh |   5000 | training |
+|    601 | tarun |  35000 | manager  |
+|    601 | panu  |  65000 | manager  |
+|    601 | pooja |  55000 | manager  |
+|    602 | mital |   3000 | tranning |
+|    602 | rehan |   3000 | tranning |
+|    602 | rohan |   5000 | tranning |
++--------+-------+--------+----------+
+8 rows in set (0.001 sec)
+
+*******Q12*********************************************
+
+select * from dept where job_title='manager' or job_title='hr' and deptid=1;
++--------+-------------------+-----------+
+| deptid | deptname          | job_title |
++--------+-------------------+-----------+
+|      1 | it                | manager   |
+|      1 | it                | hr        |
+|      2 | marketing         | manager   |
+|      3 | fashion desiginer | manager   |
++--------+-------------------+-----------+
+4 rows in set (0.001 sec)
+
+
+*******Q13*********************************************
+
+select deptname,job_title,salary from dept where job_title='hr' and deptno=1 or job_title='designier' and deptno=3 or job_title not in('hr','designier') and salary>12000;
++------------------+------------------+--------+
+| deptname         | job_title        | salary |
++------------------+------------------+--------+
+| it               | hr               |  10000 |
+| it               | designer         |  40000 |
+| marketing        | graphic designer |  30000 |
+| fashion designer | designier        |  30000 |
++------------------+------------------+--------+
+4 rows in set (0.001 sec)
+
+
+ select deptname,job_title,salary from dept where job_title='hr' and deptno=1 or job_title='designier' and deptno=3 or job_title not in('hr','designier') and salary>6000;
++------------------+------------------+--------+
+| deptname         | job_title        | salary |
++------------------+------------------+--------+
+| it               | manager          |   8000 |
+| it               | hr               |  10000 |
+| it               | designer         |  40000 |
+| marketing        | manager          |   7000 |
+| marketing        | manger           |   8000 |
+| marketing        | graphic designer |  30000 |
+| fashion designer | manager          |   7000 |
+| fashion designer | designier        |  30000 |
++------------------+------------------+--------+
+8 rows in set (0.001 sec)
+
+
+*******Q14*********************************************
+
+ select * from dept where deptno=1 and job_title not in('hr','manager');
++----+--------+----------+-----------+--------+
+| no | deptno | deptname | job_title | salary |
++----+--------+----------+-----------+--------+
+|  3 |      1 | it       | designer  |  40000 |
++----+--------+----------+-----------+--------+
+1 row in set (0.001 sec)
+
+*******Q15*********************************************
+
+select * from dept where salary  between 5000 and 10000; 
++----+--------+------------------+-----------+--------+
+| no | deptno | deptname         | job_title | salary |
++----+--------+------------------+-----------+--------+
+|  1 |      1 | it               | manager   |   8000 |
+|  2 |      1 | it               | hr        |  10000 |
+|  4 |      2 | marketing        | manager   |   7000 |
+|  5 |      2 | marketing        | manger    |   8000 |
+|  7 |      3 | fashion designer | manager   |   7000 |
++----+--------+------------------+-----------+--------+
+5 rows in set (0.024 sec)
+
+*******Q16*********************************************
+
+select * from dept where job_title in('hr','manager');
++----+--------+------------------+-----------+--------+
+| no | deptno | deptname         | job_title | salary |
++----+--------+------------------+-----------+--------+
+|  1 |      1 | it               | manager   |   8000 |
+|  2 |      1 | it               | hr        |  10000 |
+|  4 |      2 | marketing        | manager   |   7000 |
+|  7 |      3 | fashion designer | manager   |   7000 |
++----+--------+------------------+-----------+--------+
+4 rows in set (0.001 sec)
+
+
+*******Q17*********************************************
+
+ select * from employee where comission != 0;
++-------+---------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename   | deptinfo             | deptno | salary | joiningdate | comission | camount | address   |
++-------+---------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+|     3 | sanket  | hr                   |    603 |  10000 | 2022-07-14  |         1 |    3000 | surat     |
+|     5 | shivam  | developer            |    605 |  15000 | 2022-08-12  |         1 |    5000 | pune      |
+|     6 | shnehal | developer            |    605 |  15000 | 2022-05-12  |         1 |    2000 | jaipur    |
+|    10 | suraj   | developer            |    605 |  50000 | 2021-01-10  |         1 |    7000 | jaipur    |
+|    11 | ronak   | developer            |    605 |  27000 | 2021-04-01  |         1 |    1500 | jaipur    |
+|    12 | rima    | developer            |    605 |  37000 | 2021-03-05  |         1 |    4000 | ahmedabad |
+|    13 | rima    | designer             |    605 |  37000 | 2021-04-05  |         1 |     800 | ahmedabad |
+|    14 | hital   | project co-ordinater |    606 |  30000 | 2021-04-05  |         1 |    1500 | goa       |
+|    15 | vivek   | project co-ordinater |    606 |  20000 | 2021-03-01  |         1 |    2000 | ahmedabad |
+|    17 | lanu    | project co-ordinater |    606 |  10000 | 2021-06-09  |         1 |   15000 | mumbai    |
+|    20 | tarun   | manager              |    601 |  35000 | 2021-01-15  |         1 |    3000 | agra      |
+|    21 | panu    | manager              |    601 |  65000 | 2020-05-29  |         1 |    4000 | agra      |
+|    22 | pooja   | manager              |    601 |  55000 | 2020-07-20  |         1 |    6000 | kerala    |
+|    26 | brida   | hr                   |    603 |  95000 | 2020-01-18  |         1 |       0 |           |
+|    27 | umiaya  | clerk                |    604 |   5000 | 2021-01-18  |         1 |       0 |           |
+|    28 | krina   | clerk                |    604 |   5000 | 2021-01-25  |         1 |       0 |           |
+|    29 | kritu   | clerk                |    604 |  10000 | 2021-09-20  |         1 |       0 |           |
+|    37 | karan   | pa                   |    607 |   5000 | 2021-01-01  |         1 |       0 |           |
++-------+---------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+18 rows in set (0.001 sec)
+
+
+*******Q18*********************************************
+
+select deptinfo,comission from employee where comission =1;
++----------------------+-----------+
+| deptinfo             | comission |
++----------------------+-----------+
+| hr                   |         1 |
+| developer            |         1 |
+| developer            |         1 |
+| developer            |         1 |
+| developer            |         1 |
+| developer            |         1 |
+| designer             |         1 |
+| project co-ordinater |         1 |
+| project co-ordinater |         1 |
+| project co-ordinater |         1 |
+| manager              |         1 |
+| manager              |         1 |
+| manager              |         1 |
+| hr                   |         1 |
+| clerk                |         1 |
+| clerk                |         1 |
+| clerk                |         1 |
+| pa                   |         1 |
++----------------------+-----------+
+18 rows in set (0.001 sec)
+
+
+*******Q20*********************************************
+
+select deptinfo,comission,camount from employee where comission =1 and camount<3000;
++----------------------+-----------+---------+
+| deptinfo             | comission | camount |
++----------------------+-----------+---------+
+| developer            |         1 |    2000 |
+| developer            |         1 |    1500 |
+| designer             |         1 |     800 |
+| project co-ordinater |         1 |    1500 |
+| project co-ordinater |         1 |    2000 |
+| hr                   |         1 |       0 |
+| clerk                |         1 |       0 |
+| clerk                |         1 |       0 |
+| clerk                |         1 |       0 |
+| pa                   |         1 |       0 |
++----------------------+-----------+---------+
+10 rows in set (0.002 sec)
+
+*******Q22*********************************************
+
+select * from employee where salary>10000;
++-------+---------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename   | deptinfo             | deptno | salary | joiningdate | comission | camount | address   |
++-------+---------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+|     5 | shivam  | developer            |    605 |  15000 | 2022-08-12  |         1 |    5000 | pune      |
+|     6 | shnehal | developer            |    605 |  15000 | 2022-05-12  |         1 |    2000 | jaipur    |
+|     7 | nehal   | developer            |    605 |  15000 | 2022-08-12  |         0 |       0 | jaipur    |
+|     9 | renu    | developer            |    605 |  20000 | 2022-05-10  |         0 |       0 | mehsana   |
+|    10 | suraj   | developer            |    605 |  50000 | 2021-01-10  |         1 |    7000 | jaipur    |
+|    11 | ronak   | developer            |    605 |  27000 | 2021-04-01  |         1 |    1500 | jaipur    |
+|    12 | rima    | developer            |    605 |  37000 | 2021-03-05  |         1 |    4000 | ahmedabad |
+|    13 | rima    | designer             |    605 |  37000 | 2021-04-05  |         1 |     800 | ahmedabad |
+|    14 | hital   | project co-ordinater |    606 |  30000 | 2021-04-05  |         1 |    1500 | goa       |
+|    15 | vivek   | project co-ordinater |    606 |  20000 | 2021-03-01  |         1 |    2000 | ahmedabad |
+|    16 | lanu    | project co-ordinater |    606 |  15000 | 2021-02-01  |         0 |       0 | surat     |
+|    20 | tarun   | manager              |    601 |  35000 | 2021-01-15  |         1 |    3000 | agra      |
+|    21 | panu    | manager              |    601 |  65000 | 2020-05-29  |         1 |    4000 | agra      |
+|    22 | pooja   | manager              |    601 |  55000 | 2020-07-20  |         1 |    6000 | kerala    |
+|    23 | saloni  | hr                   |    603 |  35000 | 2021-05-02  |         0 |       0 | jaipur    |
+|    24 | sanu    | hr                   |    603 |  25000 | 2021-07-22  |         0 |       0 | ahmedabad |
+|    25 | bina    | hr                   |    603 |  45000 | 2021-06-18  |         0 |       0 | goa       |
+|    26 | brida   | hr                   |    603 |  95000 | 2020-01-18  |         1 |    1200 | jaipur    |
++-------+---------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+18 rows in set (0.001 sec)
+
+*******Q23*********************************************
+
+[department]> select * from employee where ename LIKE "m%";
++-------+-------+-----------+--------+--------+-------------+-----------+---------+---------+
+| empid | ename | deptinfo  | deptno | salary | joiningdate | comission | camount | address |
++-------+-------+-----------+--------+--------+-------------+-----------+---------+---------+
+|     4 | mohan | clerk     |    604 |   6000 | 2022-07-15  |         0 |       0 | mumbai  |
+|     8 | menal | developer |    605 |   9000 | 2022-08-01  |         0 |       0 | patan   |
+|    33 | mital | tranning  |    602 |   3000 | 2022-07-03  |         0 |       0 | surat   |
++-------+-------+-----------+--------+--------+-------------+-----------+---------+---------+
+3 rows in set (0.001 sec)
+
+*******Q21*********************************************
+
+select ename,(salary+250) as netsalary,comission from employee where comission = 0;
++--------+-----------+-----------+
+| ename  | netsalary | comission |
++--------+-----------+-----------+
+| setu   |      7250 |         0 |
+| uvesh  |      5250 |         0 |
+| mohan  |      6250 |         0 |
+| nehal  |     15250 |         0 |
+| menal  |      9250 |         0 |
+| renu   |     20250 |         0 |
+| lanu   |     15250 |         0 |
+| vihan  |      5250 |         0 |
+| smit   |      5250 |         0 |
+| saloni |     35250 |         0 |
+| sanu   |     25250 |         0 |
+| bina   |     45250 |         0 |
+| ginal  |      9250 |         0 |
+| jinal  |      6250 |         0 |
+| mital  |      3250 |         0 |
+| rehan  |      3250 |         0 |
+| sita   |     10250 |         0 |
+| jay    |      7250 |         0 |
++--------+-----------+-----------+
+18 rows in set (0.002 sec)
+
+
+*******Q24*********************************************
+
+select * from employee where ename LIKE "%m%";
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename  | deptinfo             | deptno | salary | joiningdate | comission | camount | address   |
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+|     4 | mohan  | clerk                |    604 |   6000 | 2022-07-15  |         0 |       0 | mumbai    |
+|     5 | shivam | developer            |    605 |  15000 | 2022-08-12  |         1 |    5000 | pune      |
+|     8 | menal  | developer            |    605 |   9000 | 2022-08-01  |         0 |       0 | patan     |
+|    12 | rima   | developer            |    605 |  37000 | 2021-03-05  |         1 |    4000 | ahmedabad |
+|    13 | rima   | designer             |    605 |  37000 | 2021-04-05  |         1 |     800 | ahmedabad |
+|    19 | smit   | project co-ordinater |    606 |   5000 | 2021-09-29  |         0 |       0 | kerala    |
+|    27 | umiaya | clerk                |    604 |   5000 | 2021-01-18  |         1 |     500 | surat     |
+|    33 | mital  | tranning             |    602 |   3000 | 2022-07-03  |         0 |       0 | surat     |
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+8 rows in set (0.001 sec)
+
+*******Q25*********************************************
+
+ select * from employee where ename LIKE "__i%" and length(ename)>=6;
++-------+--------+-----------+--------+--------+-------------+-----------+---------+---------+
+| empid | ename  | deptinfo  | deptno | salary | joiningdate | comission | camount | address |
++-------+--------+-----------+--------+--------+-------------+-----------+---------+---------+
+|     5 | shivam | developer |    605 |  15000 | 2022-08-12  |         1 |    5000 | pune    |
+|    27 | umiaya | clerk     |    604 |   5000 | 2021-01-18  |         1 |     500 | surat   |
+|    30 | chintu | clerk     |    604 |   9000 | 2022-09-20  |         1 |    1500 | jaipur  |
++-------+--------+-----------+--------+--------+-------------+-----------+---------+---------+
+3 rows in set (0.001 sec)
+
+
+*******Q26*********************************************
+
+select ename, joiningdate from employee where MONTH(joiningdate)=1;
++--------+-------------+
+| ename  | joiningdate |
++--------+-------------+
+| suraj  | 2021-01-10  |
+| tarun  | 2021-01-15  |
+| brida  | 2020-01-18  |
+| umiaya | 2021-01-18  |
+| krina  | 2021-01-25  |
+| karan  | 2021-01-01  |
+| jay    | 2022-01-01  |
++--------+-------------+
+7 rows in set (0.001 sec)
+
+
+*******Q27*********************************************
+
+ select * from employee where joiningdate=last_day(joiningdate);
++-------+-------+----------+--------+--------+-------------+-----------+---------+---------+
+| empid | ename | deptinfo | deptno | salary | joiningdate | comission | camount | address |
++-------+-------+----------+--------+--------+-------------+-----------+---------+---------+
+|     1 | setu  | manager  |    601 |   7000 | 2022-12-31  |         0 |    1000 | goa     |
++-------+-------+----------+--------+--------+-------------+-----------+---------+---------+
+1 row in set (0.009 sec)
+
+
+*******Q28*********************************************
+
+select *  from employee where year(joiningdate)<=2018;
++-------+--------+-----------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename  | deptinfo  | deptno | salary | joiningdate | comission | camount | address   |
++-------+--------+-----------+--------+--------+-------------+-----------+---------+-----------+
+|     2 | uvesh  | training  |    602 |   5000 | 2016-05-04  |         0 |       0 | ahmedabad |
+|     3 | sanket | hr        |    603 |  10000 | 2016-07-12  |         1 |    3000 | surat     |
+|     8 | menal  | developer |    605 |   9000 | 2017-08-18  |         0 |       0 | patan     |
++-------+--------+-----------+--------+--------+-------------+-----------+---------+-----------+
+3 rows in set (0.001 sec)
+
+*******Q29*********************************************
+
+ select *  from employee where year(joiningdate)=2016;
++-------+--------+----------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename  | deptinfo | deptno | salary | joiningdate | comission | camount | address   |
++-------+--------+----------+--------+--------+-------------+-----------+---------+-----------+
+|     2 | uvesh  | training |    602 |   5000 | 2016-05-04  |         0 |       0 | ahmedabad |
+|     3 | sanket | hr       |    603 |  10000 | 2016-07-12  |         1 |    3000 | surat     |
++-------+--------+----------+--------+--------+-------------+-----------+---------+-----------+
+2 rows in set (0.001 sec)
+
+*******Q30*********************************************
+
+select concat (ename,'        ',joiningdate) from employee;
++---------------------------------------+
+| concat (ename,'        ',joiningdate) |
++---------------------------------------+
+| setu        2022-12-31                |
+| uvesh        2016-05-04               |
+| sanket        2016-07-12              |
+| mohan        2022-07-15               |
+| shivam        2022-08-12              |
+| shnehal        2022-05-12             |
+| nehal        2022-08-12               |
+| menal        2017-08-18               |
+| renu        2022-05-10                |
+| suraj        2021-01-10               |
+| ronak        2021-04-01               |
+| rima        2021-03-05                |
+| rima        2021-04-05                |
+| hital        2021-04-05               |
+| vivek        2021-03-01               |
+| lanu        2021-02-01                |
+| lanu        2021-06-09                |
+| vihan        2021-09-29               |
+| smit        2021-09-29                |
+| tarun        2021-01-15               |
+| panu        2020-05-29                |
+| pooja        2020-07-20               |
+| saloni        2021-05-02              |
+| sanu        2021-07-22                |
+| bina        2021-06-18                |
+| brida        2020-01-18               |
+| umiaya        2021-01-18              |
+| krina        2021-01-25               |
+| kritu        2021-09-20               |
+| chintu        2022-09-20              |
+| ginal        2022-09-02               |
+| jinal        2022-07-03               |
+| mital        2022-07-03               |
+| rehan        2022-06-01               |
+| rohan        2022-05-01               |
+| sita        2022-05-01                |
+| karan        2021-01-01               |
+| jay        2022-01-01                 |
++---------------------------------------+
+38 rows in set (0.001 sec)
+
+*******Q31*********************************************
+
+select lpad(ename,15,'.') from employee;
++--------------------+
+| lpad(ename,15,'.') |
++--------------------+
+| ...........setu    |
+| ..........uvesh    |
+| .........sanket    |
+| ..........mohan    |
+| .........shivam    |
+| ........shnehal    |
+| ..........nehal    |
+| ..........menal    |
+| ...........renu    |
+| ..........suraj    |
+| ..........ronak    |
+| ...........rima    |
+| ...........rima    |
+| ..........hital    |
+| ..........vivek    |
+| ...........lanu    |
+| ...........lanu    |
+| ..........vihan    |
+| ...........smit    |
+| ..........tarun    |
+| ...........panu    |
+| ..........pooja    |
+| .........saloni    |
+| ...........sanu    |
+| ...........bina    |
+| ..........brida    |
+| .........umiaya    |
+| ..........krina    |
+| ..........kritu    |
+| .........chintu    |
+| ..........ginal    |
+| ..........jinal    |
+| ..........mital    |
+| ..........rehan    |
+| ..........rohan    |
+| ...........sita    |
+| ..........karan    |
+| ............jay    |
++--------------------+
+38 rows in set (0.026 sec)
+
+
+*******Q32*********************************************
+
+ select rpad(ename,15,'*') from employee;
++--------------------+
+| rpad(ename,15,'*') |
++--------------------+
+| setu***********    |
+| uvesh**********    |
+| sanket*********    |
+| mohan**********    |
+| shivam*********    |
+| shnehal********    |
+| nehal**********    |
+| menal**********    |
+| renu***********    |
+| suraj**********    |
+| ronak**********    |
+| rima***********    |
+| rima***********    |
+| hital**********    |
+| vivek**********    |
+| lanu***********    |
+| lanu***********    |
+| vihan**********    |
+| smit***********    |
+| tarun**********    |
+| panu***********    |
+| pooja**********    |
+| saloni*********    |
+| sanu***********    |
+| bina***********    |
+| brida**********    |
+| umiaya*********    |
+| krina**********    |
+| kritu**********    |
+| chintu*********    |
+| ginal**********    |
+| jinal**********    |
+| mital**********    |
+| rehan**********    |
+| rohan**********    |
+| sita***********    |
+| karan**********    |
+| jay************    |
++--------------------+
+38 rows in set (0.001 sec)
+
+
+
+*******Q33********************************************
+
+select ename from employee where ename not like('s%');
++--------+
+| ename  |
++--------+
+| uvesh  |
+| mohan  |
+| nehal  |
+| menal  |
+| renu   |
+| ronak  |
+| rima   |
+| rima   |
+| hital  |
+| vivek  |
+| lanu   |
+| lanu   |
+| vihan  |
+| tarun  |
+| panu   |
+| pooja  |
+| bina   |
+| brida  |
+| umiaya |
+| krina  |
+| kritu  |
+| chintu |
+| ginal  |
+| jinal  |
+| mital  |
+| rehan  |
+| rohan  |
+| karan  |
+| jay    |
++--------+
+29 rows in set (0.001 sec)
+
+*******Q34*********************************************
+select ename from employee where ename not like('%l');
++--------+
+| ename  |
++--------+
+| setu   |
+| uvesh  |
+| sanket |
+| mohan  |
+| shivam |
+| renu   |
+| suraj  |
+| ronak  |
+| rima   |
+| rima   |
+| vivek  |
+| lanu   |
+| lanu   |
+| vihan  |
+| smit   |
+| tarun  |
+| panu   |
+| pooja  |
+| saloni |
+| sanu   |
+| bina   |
+| brida  |
+| umiaya |
+| krina  |
+| kritu  |
+| chintu |
+| rehan  |
+| rohan  |
+| sita   |
+| karan  |
+| jay    |
++--------+
+
+
+*******Q35*********************************************
+
+ select  substr(ename,1,2),reverse(substr(reverse(ename),1,2)) from employee;
++-------------------+-------------------------------------+
+| substr(ename,1,2) | reverse(substr(reverse(ename),1,2)) |
++-------------------+-------------------------------------+
+| se                | tu                                  |
+| uv                | sh                                  |
+| sa                | et                                  |
+| mo                | an                                  |
+| sh                | am                                  |
+| sh                | al                                  |
+| ne                | al                                  |
+| me                | al                                  |
+| re                | nu                                  |
+| su                | aj                                  |
+| ro                | ak                                  |
+| ri                | ma                                  |
+| ri                | ma                                  |
+| hi                | al                                  |
+| vi                | ek                                  |
+| la                | nu                                  |
+| la                | nu                                  |
+| vi                | an                                  |
+| sm                | it                                  |
+| ta                | un                                  |
+| pa                | nu                                  |
+| po                | ja                                  |
+| sa                | ni                                  |
+| sa                | nu                                  |
+| bi                | na                                  |
+| br                | da                                  |
+| um                | ya                                  |
+| kr                | na                                  |
+| kr                | tu                                  |
+| ch                | tu                                  |
+| gi                | al                                  |
+| ji                | al                                  |
+| mi                | al                                  |
+| re                | an                                  |
+| ro                | an                                  |
+| si                | ta                                  |
+| ka                | an                                  |
+| ja                | ay                                  |
++-------------------+-------------------------------------+
+38 rows in set (0.052 sec)
+
+
+*******Q36*********************************************
+
+select replace(ename,'e','E') from employee where ename='setu';
++------------------------+
+| replace(ename,'e','E') |
++------------------------+
+| sEtu                   |
++------------------------+
+1 row in set (0.001 sec)
+
+*******Q37*********************************************
+
+ select salary,ceil(salary/1000)*1000 from employee where empid=18;
++--------+------------------------+
+| salary | ceil(salary/1000)*1000 |
++--------+------------------------+
+|   5550 |                   6000 |
++--------+------------------------+
+1 row in set (0.001 sec)
+
+*******Q38*********************************************
+
+select salary,ceil(salary/1000)*1000 from employee where empid=18;
++--------+------------------------+
+| salary | ceil(salary/1000)*1000 |
++--------+------------------------+
+|   5550 |                   6000 |
++--------+------------------------+
+
+*******Q40*********************************************
+
+select ename,joiningdate,TIMESTAMPDIFF(YEAR,joiningdate,CURDATE()) as year from employee;
++---------+-------------+------+
+| ename   | joiningdate | year |
++---------+-------------+------+
+| setu    | 2022-12-31  |    0 |
+| uvesh   | 2016-05-04  |    6 |
+| sanket  | 2016-07-12  |    6 |
+| mohan   | 2022-07-15  |    0 |
+| shivam  | 2022-08-12  |    0 |
+| shnehal | 2022-05-12  |    0 |
+| nehal   | 2022-08-12  |    0 |
+| menal   | 2017-08-18  |    5 |
+| renu    | 2022-05-10  |    0 |
+| suraj   | 2021-01-10  |    1 |
+| ronak   | 2021-04-01  |    1 |
+| rima    | 2021-03-05  |    1 |
+| rima    | 2021-04-05  |    1 |
+| hital   | 2021-04-05  |    1 |
+| vivek   | 2021-03-01  |    1 |
+| lanu    | 2021-02-01  |    1 |
+| lanu    | 2021-06-09  |    1 |
+| vihan   | 2021-09-29  |    0 |
+| smit    | 2021-09-29  |    0 |
+| tarun   | 2021-01-15  |    1 |
+| panu    | 2020-05-29  |    2 |
+| pooja   | 2020-07-20  |    2 |
+| saloni  | 2021-05-02  |    1 |
+| sanu    | 2021-07-22  |    1 |
+| bina    | 2021-06-18  |    1 |
+| brida   | 2020-01-18  |    2 |
+| umiaya  | 2021-01-18  |    1 |
+| krina   | 2021-01-25  |    1 |
+| kritu   | 2021-09-20  |    0 |
+| chintu  | 2022-09-20  |    0 |
+| ginal   | 2022-09-02  |    0 |
+| jinal   | 2022-07-03  |    0 |
+| mital   | 2022-07-03  |    0 |
+| rehan   | 2022-06-01  |    0 |
+| rohan   | 2022-05-01  |    0 |
+| sita    | 2022-05-01  |    0 |
+| karan   | 2021-01-01  |    1 |
+| jay     | 2022-01-01  |    0 |
++---------+-------------+------+
+38 rows in set (0.117 sec)
+
+
+*******Q41*********************************************
+
+select ename,joiningdate,TIMESTAMPDIFF(DAY,joiningdate,CURDATE()) as TOTALDATE from employee;
++---------+-------------+-----------+
+| ename   | joiningdate | TOTALDATE |
++---------+-------------+-----------+
+| setu    | 2022-12-31  |      -123 |
+| uvesh   | 2016-05-04  |      2309 |
+| sanket  | 2016-07-12  |      2240 |
+| mohan   | 2022-07-15  |        46 |
+| shivam  | 2022-08-12  |        18 |
+| shnehal | 2022-05-12  |       110 |
+| nehal   | 2022-08-12  |        18 |
+| menal   | 2017-08-18  |      1838 |
+| renu    | 2022-05-10  |       112 |
+| suraj   | 2021-01-10  |       597 |
+| ronak   | 2021-04-01  |       516 |
+| rima    | 2021-03-05  |       543 |
+| rima    | 2021-04-05  |       512 |
+| hital   | 2021-04-05  |       512 |
+| vivek   | 2021-03-01  |       547 |
+| lanu    | 2021-02-01  |       575 |
+| lanu    | 2021-06-09  |       447 |
+| vihan   | 2021-09-29  |       335 |
+| smit    | 2021-09-29  |       335 |
+| tarun   | 2021-01-15  |       592 |
+| panu    | 2020-05-29  |       823 |
+| pooja   | 2020-07-20  |       771 |
+| saloni  | 2021-05-02  |       485 |
+| sanu    | 2021-07-22  |       404 |
+| bina    | 2021-06-18  |       438 |
+| brida   | 2020-01-18  |       955 |
+| umiaya  | 2021-01-18  |       589 |
+| krina   | 2021-01-25  |       582 |
+| kritu   | 2021-09-20  |       344 |
+| chintu  | 2022-09-20  |       -21 |
+| ginal   | 2022-09-02  |        -3 |
+| jinal   | 2022-07-03  |        58 |
+| mital   | 2022-07-03  |        58 |
+| rehan   | 2022-06-01  |        90 |
+| rohan   | 2022-05-01  |       121 |
+| sita    | 2022-05-01  |       121 |
+| karan   | 2021-01-01  |       606 |
+| jay     | 2022-01-01  |       241 |
++---------+-------------+-----------+
+38 rows in set (0.101 sec)
+
+*******Q42*********************************************
+
+select ename,joiningdate,TIMESTAMPDIFF(MONTH,joiningdate,CURDATE()) as TOTALDATE from employee;
++---------+-------------+-----------+
+| ename   | joiningdate | TOTALDATE |
++---------+-------------+-----------+
+| setu    | 2022-12-31  |        -4 |
+| uvesh   | 2016-05-04  |        75 |
+| sanket  | 2016-07-12  |        73 |
+| mohan   | 2022-07-15  |         1 |
+| shivam  | 2022-08-12  |         0 |
+| shnehal | 2022-05-12  |         3 |
+| nehal   | 2022-08-12  |         0 |
+| menal   | 2017-08-18  |        60 |
+| renu    | 2022-05-10  |         3 |
+| suraj   | 2021-01-10  |        19 |
+| ronak   | 2021-04-01  |        16 |
+| rima    | 2021-03-05  |        17 |
+| rima    | 2021-04-05  |        16 |
+| hital   | 2021-04-05  |        16 |
+| vivek   | 2021-03-01  |        17 |
+| lanu    | 2021-02-01  |        18 |
+| lanu    | 2021-06-09  |        14 |
+| vihan   | 2021-09-29  |        11 |
+| smit    | 2021-09-29  |        11 |
+| tarun   | 2021-01-15  |        19 |
+| panu    | 2020-05-29  |        27 |
+| pooja   | 2020-07-20  |        25 |
+| saloni  | 2021-05-02  |        15 |
+| sanu    | 2021-07-22  |        13 |
+| bina    | 2021-06-18  |        14 |
+| brida   | 2020-01-18  |        31 |
+| umiaya  | 2021-01-18  |        19 |
+| krina   | 2021-01-25  |        19 |
+| kritu   | 2021-09-20  |        11 |
+| chintu  | 2022-09-20  |         0 |
+| ginal   | 2022-09-02  |         0 |
+| jinal   | 2022-07-03  |         1 |
+| mital   | 2022-07-03  |         1 |
+| rehan   | 2022-06-01  |         2 |
+| rohan   | 2022-05-01  |         3 |
+| sita    | 2022-05-01  |         3 |
+| karan   | 2021-01-01  |        19 |
+| jay     | 2022-01-01  |         7 |
++---------+-------------+-----------+
+38 rows in set (0.001 sec)
+
+
+*******Q43*********************************************
+
+select ename from employee order by ename;
++---------+
+| ename   |
++---------+
+| bina    |
+| brida   |
+| chintu  |
+| ginal   |
+| hital   |
+| jay     |
+| jinal   |
+| karan   |
+| krina   |
+| kritu   |
+| lanu    |
+| lanu    |
+| menal   |
+| mital   |
+| mohan   |
+| nehal   |
+| panu    |
+| pooja   |
+| rehan   |
+| renu    |
+| rima    |
+| rima    |
+| rohan   |
+| ronak   |
+| saloni  |
+| sanket  |
+| sanu    |
+| setu    |
+| shivam  |
+| shnehal |
+| sita    |
+| smit    |
+| suraj   |
+| tarun   |
+| umiaya  |
+| uvesh   |
+| vihan   |
+| vivek   |
++---------+
+38 rows in set (0.013 sec)
+
+*******Q44*********************************************
+
+select ename,joiningdate from employee order by joiningdate;
++---------+-------------+
+| ename   | joiningdate |
++---------+-------------+
+| uvesh   | 2016-05-04  |
+| sanket  | 2016-07-12  |
+| menal   | 2017-08-18  |
+| brida   | 2020-01-18  |
+| panu    | 2020-05-29  |
+| pooja   | 2020-07-20  |
+| karan   | 2021-01-01  |
+| suraj   | 2021-01-10  |
+| tarun   | 2021-01-15  |
+| umiaya  | 2021-01-18  |
+| krina   | 2021-01-25  |
+| lanu    | 2021-02-01  |
+| vivek   | 2021-03-01  |
+| rima    | 2021-03-05  |
+| ronak   | 2021-04-01  |
+| hital   | 2021-04-05  |
+| rima    | 2021-04-05  |
+| saloni  | 2021-05-02  |
+| lanu    | 2021-06-09  |
+| bina    | 2021-06-18  |
+| sanu    | 2021-07-22  |
+| kritu   | 2021-09-20  |
+| vihan   | 2021-09-29  |
+| smit    | 2021-09-29  |
+| jay     | 2022-01-01  |
+| sita    | 2022-05-01  |
+| rohan   | 2022-05-01  |
+| renu    | 2022-05-10  |
+| shnehal | 2022-05-12  |
+| rehan   | 2022-06-01  |
+| mital   | 2022-07-03  |
+| jinal   | 2022-07-03  |
+| mohan   | 2022-07-15  |
+| shivam  | 2022-08-12  |
+| nehal   | 2022-08-12  |
+| ginal   | 2022-09-02  |
+| chintu  | 2022-09-20  |
+| setu    | 2022-12-31  |
++---------+-------------+
+38 rows in set (0.001 sec)
+
+*******Q45*********************************************
+
+select ename,deptinfo,salary from employee order by deptinfo, salary ;
++---------+----------------------+--------+
+| ename   | deptinfo             | salary |
++---------+----------------------+--------+
+| umiaya  | clerk                |   5000 |
+| krina   | clerk                |   5000 |
+| jinal   | clerk                |   6000 |
+| mohan   | clerk                |   6000 |
+| chintu  | clerk                |   9000 |
+| ginal   | clerk                |   9000 |
+| kritu   | clerk                |  10000 |
+| rima    | designer             |  37000 |
+| menal   | developer            |   9000 |
+| nehal   | developer            |  15000 |
+| shnehal | developer            |  15000 |
+| shivam  | developer            |  15000 |
+| renu    | developer            |  20000 |
+| ronak   | developer            |  27000 |
+| rima    | developer            |  37000 |
+| suraj   | developer            |  50000 |
+| sanket  | hr                   |  10000 |
+| sita    | hr                   |  10000 |
+| sanu    | hr                   |  25000 |
+| saloni  | hr                   |  35000 |
+| bina    | hr                   |  45000 |
+| brida   | hr                   |  95000 |
+| setu    | manager              |   7000 |
+| tarun   | manager              |  35000 |
+| pooja   | manager              |  55000 |
+| panu    | manager              |  65000 |
+| karan   | pa                   |   5000 |
+| jay     | pa                   |   7000 |
+| smit    | project co-ordinater |   5000 |
+| vihan   | project co-ordinater |   5550 |
+| lanu    | project co-ordinater |  10000 |
+| lanu    | project co-ordinater |  15000 |
+| vivek   | project co-ordinater |  20000 |
+| hital   | project co-ordinater |  30000 |
+| uvesh   | training             |   5000 |
+| mital   | tranning             |   3000 |
+| rehan   | tranning             |   3000 |
+| rohan   | tranning             |   5000 |
++---------+----------------------+--------+
+38 rows in set (0.083 sec)
+
+
+
+*******Q46*********************************************
+
+select ename,deptinfo,salary from employee order by salary desc, deptinfo asc ;
++---------+----------------------+--------+
+| ename   | deptinfo             | salary |
++---------+----------------------+--------+
+| brida   | hr                   |  95000 |
+| panu    | manager              |  65000 |
+| pooja   | manager              |  55000 |
+| suraj   | developer            |  50000 |
+| bina    | hr                   |  45000 |
+| rima    | designer             |  37000 |
+| rima    | developer            |  37000 |
+| saloni  | hr                   |  35000 |
+| tarun   | manager              |  35000 |
+| hital   | project co-ordinater |  30000 |
+| ronak   | developer            |  27000 |
+| sanu    | hr                   |  25000 |
+| renu    | developer            |  20000 |
+| vivek   | project co-ordinater |  20000 |
+| nehal   | developer            |  15000 |
+| shivam  | developer            |  15000 |
+| shnehal | developer            |  15000 |
+| lanu    | project co-ordinater |  15000 |
+| kritu   | clerk                |  10000 |
+| sita    | hr                   |  10000 |
+| sanket  | hr                   |  10000 |
+| lanu    | project co-ordinater |  10000 |
+| ginal   | clerk                |   9000 |
+| chintu  | clerk                |   9000 |
+| menal   | developer            |   9000 |
+| setu    | manager              |   7000 |
+| jay     | pa                   |   7000 |
+| jinal   | clerk                |   6000 |
+| mohan   | clerk                |   6000 |
+| vihan   | project co-ordinater |   5550 |
+| krina   | clerk                |   5000 |
+| umiaya  | clerk                |   5000 |
+| karan   | pa                   |   5000 |
+| smit    | project co-ordinater |   5000 |
+| uvesh   | training             |   5000 |
+| rohan   | tranning             |   5000 |
+| rehan   | tranning             |   3000 |
+| mital   | tranning             |   3000 |
++---------+----------------------+--------+
+38 rows in set (0.001 sec)
+
+*******Q47*********************************************
+
+select ename,joiningdate,TIMESTAMPDIFF(YEAR,joiningdate,CURDATE()) >= 1 as 1yr from employee;
++---------+-------------+------+
+| ename   | joiningdate | 1yr  |
++---------+-------------+------+
+| setu    | 2022-12-31  |    0 |
+| uvesh   | 2016-05-04  |    1 |
+| sanket  | 2016-07-12  |    1 |
+| mohan   | 2022-07-15  |    0 |
+| shivam  | 2022-08-12  |    0 |
+| shnehal | 2022-05-12  |    0 |
+| nehal   | 2022-08-12  |    0 |
+| menal   | 2017-08-18  |    1 |
+| renu    | 2022-05-10  |    0 |
+| suraj   | 2021-01-10  |    1 |
+| ronak   | 2021-04-01  |    1 |
+| rima    | 2021-03-05  |    1 |
+| rima    | 2021-04-05  |    1 |
+| hital   | 2021-04-05  |    1 |
+| vivek   | 2021-03-01  |    1 |
+| lanu    | 2021-02-01  |    1 |
+| lanu    | 2021-06-09  |    1 |
+| vihan   | 2021-09-29  |    0 |
+| smit    | 2021-09-29  |    0 |
+| tarun   | 2021-01-15  |    1 |
+| panu    | 2020-05-29  |    1 |
+| pooja   | 2020-07-20  |    1 |
+| saloni  | 2021-05-02  |    1 |
+| sanu    | 2021-07-22  |    1 |
+| bina    | 2021-06-18  |    1 |
+| brida   | 2020-01-18  |    1 |
+| umiaya  | 2021-01-18  |    1 |
+| krina   | 2021-01-25  |    1 |
+| kritu   | 2021-09-20  |    0 |
+| chintu  | 2022-09-20  |    0 |
+| ginal   | 2022-09-02  |    0 |
+| jinal   | 2022-07-03  |    0 |
+| mital   | 2022-07-03  |    0 |
+| rehan   | 2022-06-01  |    0 |
+| rohan   | 2022-05-01  |    0 |
+| sita    | 2022-05-01  |    0 |
+| karan   | 2021-01-01  |    1 |
+| jay     | 2022-01-01  |    0 |
++---------+-------------+------+
+38 rows in set (0.001 sec)
+
+
+*******Q48*********************************************
+
+select ename,deptinfo,salary from employee where comission = 0 order by deptinfo;
++--------+----------------------+--------+
+| ename  | deptinfo             | salary |
++--------+----------------------+--------+
+| mohan  | clerk                |   6000 |
+| ginal  | clerk                |   9000 |
+| jinal  | clerk                |   6000 |
+| renu   | developer            |  20000 |
+| nehal  | developer            |  15000 |
+| menal  | developer            |   9000 |
+| bina   | hr                   |  45000 |
+| saloni | hr                   |  35000 |
+| sita   | hr                   |  10000 |
+| sanu   | hr                   |  25000 |
+| setu   | manager              |   7000 |
+| jay    | pa                   |   7000 |
+| smit   | project co-ordinater |   5000 |
+| vihan  | project co-ordinater |   5550 |
+| lanu   | project co-ordinater |  15000 |
+| uvesh  | training             |   5000 |
+| mital  | tranning             |   3000 |
+| rehan  | tranning             |   3000 |
++--------+----------------------+--------+
+18 rows in set (0.032 sec)
+
+
+*******Q49*********************************************
+
+select ename,deptinfo,joiningdate from employee where year(joiningdate)= 2016 order by joiningdate; 
++--------+----------+-------------+
+| ename  | deptinfo | joiningdate |
++--------+----------+-------------+
+| uvesh  | training | 2016-05-04  |
+| sanket | hr       | 2016-07-12  |
++--------+----------+-------------+
+2 rows in set (0.000 sec)
+
+
+*******Q51********************************************
+
+select ename,deptinfo,salary from employee where ename like 's%';
++---------+----------------------+--------+
+| ename   | deptinfo             | salary |
++---------+----------------------+--------+
+| setu    | manager              |   7000 |
+| sanket  | hr                   |  10000 |
+| shivam  | developer            |  15000 |
+| shnehal | developer            |  15000 |
+| suraj   | developer            |  50000 |
+| smit    | project co-ordinater |   5000 |
+| saloni  | hr                   |  35000 |
+| sanu    | hr                   |  25000 |
+| sita    | hr                   |  10000 |
++---------+----------------------+--------+
+9 rows in set (0.001 sec)
+
+*******Q52*********************************************
+
+ select ename,salary from employee where salary= (select max(salary) from employee);
++-------+--------+
+| ename | salary |
++-------+--------+
+| brida |  95000 |
++-------+--------+
+1 row in set (0.001 sec)
+
+*******Q53*********************************************
+
+select * from employee  where empid in (select empid from employee where salary=(select max(salary) from employee where salary < (select max(salary) from employee)));
++-------+-------+----------+--------+--------+-------------+-----------+---------+---------+
+| empid | ename | deptinfo | deptno | salary | joiningdate | comission | camount | address |
++-------+-------+----------+--------+--------+-------------+-----------+---------+---------+
+|    21 | panu  | manager  |    601 |  65000 | 2020-05-29  |         1 |    4000 | agra    |
++-------+-------+----------+--------+--------+-------------+-----------+---------+---------+
+1 row in set (0.002 sec)
+
+MariaDB [department]> select ename,salary,deptinfo from employee  where ename in (select ename from employee where salary=(select max(salary) from employee where salary < (select max(salary) from employee)));
++-------+--------+----------+
+| ename | salary | deptinfo |
++-------+--------+----------+
+| panu  |  65000 | manager  |
++-------+--------+----------+
+1 row in set (0.002 sec)
+
+*******Q57*********************************************
+
+select deptinfo,count(ename) from employee  group by deptinfo;
++----------------------+--------------+
+| deptinfo             | count(ename) |
++----------------------+--------------+
+| clerk                |            7 |
+| designer             |            1 |
+| developer            |            8 |
+| hr                   |            6 |
+| manager              |            4 |
+| pa                   |            2 |
+| project co-ordinater |            6 |
+| training             |            1 |
+| tranning             |            3 |
++----------------------+--------------+
+9 rows in set (0.001 sec)
+
+*******Q58*********************************************
+
+select count(ename),joiningdate from employee group by year(joiningdate);
++--------------+-------------+
+| count(ename) | joiningdate |
++--------------+-------------+
+|            2 | 2016-05-04  |
+|            1 | 2017-08-18  |
+|            3 | 2020-05-29  |
+|           18 | 2021-01-10  |
+|           14 | 2022-12-31  |
++--------------+-------------+
+5 rows in set (0.001 sec)
+
+*******Q60*********************************************
+
+select ename from employee where ename like 'ri%';
++-------+
+| ename |
++-------+
+| rima  |
+| rima  |
++-------+
+2 rows in set (0.001 sec)
+
+*******Q61*********************************************
+
+SELECT FORMAT(123456789,'+###-###-####') AS 'number';
++-------------+
+| number      |
++-------------+
+| 123,456,789 |
++-------------+
+1 row in set, 2 warnings (0.029 sec)
+
+*******Q62*********************************************
+
+ select joiningdate,ename from employee where Year(joiningdate)=2016;
++-------------+--------+
+| joiningdate | ename  |
++-------------+--------+
+| 2016-05-04  | uvesh  |
+| 2016-07-12  | sanket |
++-------------+--------+
+2 rows in set (0.001 sec)
+
+*******Q63*********************************************
+
+ select avg(salary) from employee;
++-------------+
+| avg(salary) |
++-------------+
+|  20277.6316 |
++-------------+
+1 row in set (0.001 sec)
+
+select ename,salary from employee where deptno in (select deptno from employee) and salary > (select avg(salary) from employee);
++--------+--------+
+| ename  | salary |
++--------+--------+
+| suraj  |  50000 |
+| ronak  |  27000 |
+| rima   |  37000 |
+| rima   |  37000 |
+| hital  |  30000 |
+| tarun  |  35000 |
+| panu   |  65000 |
+| pooja  |  55000 |
+| saloni |  35000 |
+| sanu   |  25000 |
+| bina   |  45000 |
+| brida  |  95000 |
++--------+--------+
+12 rows in set (0.002 sec)
+
+*******Q64*********************************************
+
+select deptinfo,max(salary) from employee group by deptinfo;
++----------------------+-------------+
+| deptinfo             | max(salary) |
++----------------------+-------------+
+| clerk                |       10000 |
+| designer             |       37000 |
+| developer            |       50000 |
+| hr                   |       95000 |
+| manager              |       65000 |
+| pa                   |        7000 |
+| project co-ordinater |       30000 |
+| training             |        5000 |
+| tranning             |        5000 |
++----------------------+-------------+
+
+*******Q65*********************************************
+
+select * from employee e where 5 > (select count(*) from employee where e.salary<salary);
++-------+-------+-----------+--------+--------+-------------+-----------+---------+---------+
+| empid | ename | deptinfo  | deptno | salary | joiningdate | comission | camount | address |
++-------+-------+-----------+--------+--------+-------------+-----------+---------+---------+
+|    10 | suraj | developer |    605 |  50000 | 2021-01-10  |         1 |    7000 | jaipur  |
+|    21 | panu  | manager   |    601 |  65000 | 2020-05-29  |         1 |    4000 | agra    |
+|    22 | pooja | manager   |    601 |  55000 | 2020-07-20  |         1 |    6000 | kerala  |
+|    25 | bina  | hr        |    603 |  45000 | 2021-06-18  |         0 |       0 | goa     |
+|    26 | brida | hr        |    603 |  95000 | 2020-01-18  |         1 |    1200 | jaipur  |
++-------+-------+-----------+--------+--------+-------------+-----------+---------+---------+
+5 rows in set (0.003 sec)
+
+*******Q66*********************************************
+
+select ename,joiningdate from employee where year(joiningdate)=2020;
++-------+-------------+
+| ename | joiningdate |
++-------+-------------+
+| panu  | 2020-05-29  |
+| pooja | 2020-07-20  |
+| brida | 2020-01-18  |
++-------+-------------+
+3 rows in set (0.001 sec)
+
+*******Q67*********************************************
+
+SELECT REVERSE(ename) from employee ;
++----------------+
+| REVERSE(ename) |
++----------------+
+| utes           |
+| hsevu          |
+| teknas         |
+| nahom          |
+| mavihs         |
+| lahenhs        |
+| lahen          |
+| lanem          |
+| uner           |
+| jarus          |
+| kanor          |
+| amir           |
+| amir           |
+| latih          |
+| keviv          |
+| unal           |
+| unal           |
+| nahiv          |
+| tims           |
+| nurat          |
+| unap           |
+| ajoop          |
+| inolas         |
+| unas           |
+| anib           |
+| adirb          |
+| ayaimu         |
+| anirk          |
+| utirk          |
+| utnihc         |
+| lanig          |
+| lanij          |
+| latim          |
+| naher          |
+| nahor          |
+| atis           |
+| narak          |
+| yaj            |
++----------------+
+38 rows in set (0.001 sec)
+
+*******Q68*********************************************
+
+select ename,joiningdate from employee where day(joiningdate)>15;
++--------+-------------+
+| ename  | joiningdate |
++--------+-------------+
+| setu   | 2022-12-31  |
+| menal  | 2017-08-18  |
+| vihan  | 2021-09-29  |
+| smit   | 2021-09-29  |
+| panu   | 2020-05-29  |
+| pooja  | 2020-07-20  |
+| sanu   | 2021-07-22  |
+| bina   | 2021-06-18  |
+| brida  | 2020-01-18  |
+| umiaya | 2021-01-18  |
+| krina  | 2021-01-25  |
+| kritu  | 2021-09-20  |
+| chintu | 2022-09-20  |
++--------+-------------+
+13 rows in set (0.001 sec)
+
+*******Q69*********************************************
+
+ select * from dept where job_title='manager';
++----+--------+------------------+-----------+--------+
+| no | deptno | deptname         | job_title | salary |
++----+--------+------------------+-----------+--------+
+|  1 |      1 | it               | manager   |   8000 |
+|  4 |      2 | marketing        | manager   |   7000 |
+|  7 |      3 | fashion designer | manager   |   7000 |
++----+--------+------------------+-----------+--------+
+3 rows in set (0.032 sec)
+
+*******Q70*********************************************
+
+select ltrim(deptinfo) from employee;
++----------------------+
+| ltrim(deptinfo)      |
++----------------------+
+| manager              |
+| training             |
+| hr                   |
+| clerk                |
+| developer            |
+| developer            |
+| developer            |
+| developer            |
+| developer            |
+| developer            |
+| developer            |
+| developer            |
+| designer             |
+| project co-ordinater |
+| project co-ordinater |
+| project co-ordinater |
+| project co-ordinater |
+| project co-ordinater |
+| project co-ordinater |
+| manager              |
+| manager              |
+| manager              |
+| hr                   |
+| hr                   |
+| hr                   |
+| hr                   |
+| clerk                |
+| clerk                |
+| clerk                |
+| clerk                |
+| clerk                |
+| clerk                |
+| tranning             |
+| tranning             |
+| tranning             |
+| hr                   |
+| pa                   |
+| pa                   |
++----------------------+
+38 rows in set (0.001 sec)
+
+*******Q71*********************************************
+
+select rtrim(ename) as r from employee;
++---------+
+| r       |
++---------+
+| setu    |
+| uvesh   |
+| sanket  |
+| mohan   |
+| shivam  |
+| shnehal |
+| nehal   |
+| menal   |
+| renu    |
+| suraj   |
+| ronak   |
+| rima    |
+| rima    |
+| hital   |
+| vivek   |
+| lanu    |
+| lanu    |
+| vihan   |
+| smit    |
+| tarun   |
+| panu    |
+| pooja   |
+| saloni  |
+| sanu    |
+| bina    |
+| brida   |
+| umiaya  |
+| krina   |
+| kritu   |
+| chintu  |
+| ginal   |
+| jinal   |
+| mital   |
+| rehan   |
+| rohan   |
+| sita    |
+| karan   |
+| jay     |
++---------+
+38 rows in set (0.001 sec)
+
+*******Q72*********************************************
+
+select ename,INSTR(ename,'e') from employee where ename='rehan';
++-------+------------------+
+| ename | INSTR(ename,'e') |
++-------+------------------+
+| rehan |                2 |
++-------+------------------+
+1 row in set (0.001 sec)
+
+*******Q73*********************************************
+
+select ename from employee where ename like '____';
++-------+
+| ename |
++-------+
+| setu  |
+| renu  |
+| rima  |
+| rima  |
+| lanu  |
+| lanu  |
+| smit  |
+| panu  |
+| sanu  |
+| bina  |
+| sita  |
++-------+
+
+*******Q75*********************************************
+
+select upper(ename) from employee;
++--------------+
+| upper(ename) |
++--------------+
+| SETU         |
+| UVESH        |
+| SANKET       |
+| MOHAN        |
+| SHIVAM       |
+| SHNEHAL      |
+| NEHAL        |
+| MENAL        |
+| RENU         |
+| SURAJ        |
+| RONAK        |
+| RIMA         |
+| RIMA         |
+| HITAL        |
+| VIVEK        |
+| LANU         |
+| LANU         |
+| VIHAN        |
+| SMIT         |
+| TARUN        |
+| PANU         |
+| POOJA        |
+| SALONI       |
+| SANU         |
+| BINA         |
+| BRIDA        |
+| UMIAYA       |
+| KRINA        |
+| KRITU        |
+| CHINTU       |
+| GINAL        |
+| JINAL        |
+| MITAL        |
+| REHAN        |
+| ROHAN        |
+| SITA         |
+| KARAN        |
+| JAY          |
++--------------+
+38 rows in set (0.001 sec)
+
+*******Q76*********************************************
+
+select ename as employee from employee ;
++----------+
+| employee |
++----------+
+| setu     |
+| uvesh    |
+| sanket   |
+| mohan    |
+| shivam   |
+| shnehal  |
+| nehal    |
+| menal    |
+| renu     |
+| suraj    |
+| ronak    |
+| rima     |
+| rima     |
+| hital    |
+| vivek    |
+| lanu     |
+| lanu     |
+| vihan    |
+| smit     |
+| tarun    |
+| panu     |
+| pooja    |
+| saloni   |
+| sanu     |
+| bina     |
+| brida    |
+| umiaya   |
+| krina    |
+| kritu    |
+| chintu   |
+| ginal    |
+| jinal    |
+| mital    |
+| rehan    |
+| rohan    |
+| sita     |
+| karan    |
+| jay      |
++----------+
+38 rows in set (0.001 sec)
+
+*******Q77*********************************************
+
+select length(ename) from employee;
++---------------+
+| length(ename) |
++---------------+
+|             4 |
+|             5 |
+|             6 |
+|             5 |
+|             6 |
+|             7 |
+|             5 |
+|             5 |
+|             4 |
+|             5 |
+|             5 |
+|             4 |
+|             4 |
+|             5 |
+|             5 |
+|             4 |
+|             4 |
+|             5 |
+|             4 |
+|             5 |
+|             4 |
+|             5 |
+|             6 |
+|             4 |
+|             4 |
+|             5 |
+|             6 |
+|             5 |
+|             5 |
+|             6 |
+|             5 |
+|             5 |
+|             5 |
+|             5 |
+|             5 |
+|             4 |
+|             5 |
+|             3 |
++---------------+
+38 rows in set (0.014 sec)
+
+*******Q78*********************************************
+
+select replace(ename ,'h',' #') from employee;
++--------------------------+
+| replace(ename ,'h',' #') |
++--------------------------+
+| setu                     |
+| uves #                   |
+| sanket                   |
+| mo #an                   |
+| s #ivam                  |
+| s #ne #al                |
+| ne #al                   |
+| menal                    |
+| renu                     |
+| suraj                    |
+| ronak                    |
+| rima                     |
+| rima                     |
+|  #ital                   |
+| vivek                    |
+| lanu                     |
+| lanu                     |
+| vi #an                   |
+| smit                     |
+| tarun                    |
+| panu                     |
+| pooja                    |
+| saloni                   |
+| sanu                     |
+| bina                     |
+| brida                    |
+| umiaya                   |
+| krina                    |
+| kritu                    |
+| c #intu                  |
+| ginal                    |
+| jinal                    |
+| mital                    |
+| re #an                   |
+| ro #an                   |
+| sita                     |
+| karan                    |
+| jay                      |
++--------------------------+
+38 rows in set (0.001 sec)
+
+*******Q79*********************************************
+
+select concat(ename,'_',deptinfo) as full from employee; 
++----------------------------+
+| full                       |
++----------------------------+
+| setu_manager               |
+| uvesh_training             |
+| sanket_hr                  |
+| mohan_clerk                |
+| shivam_developer           |
+| shnehal_developer          |
+| nehal_developer            |
+| menal_developer            |
+| renu_developer             |
+| suraj_developer            |
+| ronak_developer            |
+| rima_developer             |
+| rima_designer              |
+| hital_project co-ordinater |
+| vivek_project co-ordinater |
+| lanu_project co-ordinater  |
+| lanu_project co-ordinater  |
+| vihan_project co-ordinater |
+| smit_project co-ordinater  |
+| tarun_manager              |
+| panu_manager               |
+| pooja_manager              |
+| saloni_hr                  |
+| sanu_hr                    |
+| bina_hr                    |
+| brida_hr                   |
+| umiaya_clerk               |
+| krina_clerk                |
+| kritu_clerk                |
+| chintu_clerk               |
+| ginal_clerk                |
+| jinal_clerk                |
+| mital_tranning             |
+| rehan_tranning             |
+| rohan_tranning             |
+| sita_hr                    |
+| karan_pa                   |
+| jay_pa                     |
++----------------------------+
+38 rows in set (0.001 sec)
+
+*******Q80*********************************************
+
+select year(joiningdate) as year,month(joiningdate) as month,day(joiningdate) as date from employee;
++------+-------+------+
+| year | month | date |
++------+-------+------+
+| 2022 |    12 |   31 |
+| 2016 |     5 |    4 |
+| 2016 |     7 |   12 |
+| 2022 |     7 |   15 |
+| 2022 |     8 |   12 |
+| 2022 |     5 |   12 |
+| 2022 |     8 |   12 |
+| 2017 |     8 |   18 |
+| 2022 |     5 |   10 |
+| 2021 |     1 |   10 |
+| 2021 |     4 |    1 |
+| 2021 |     3 |    5 |
+| 2021 |     4 |    5 |
+| 2021 |     4 |    5 |
+| 2021 |     3 |    1 |
+| 2021 |     2 |    1 |
+| 2021 |     6 |    9 |
+| 2021 |     9 |   29 |
+| 2021 |     9 |   29 |
+| 2021 |     1 |   15 |
+| 2020 |     5 |   29 |
+| 2020 |     7 |   20 |
+| 2021 |     5 |    2 |
+| 2021 |     7 |   22 |
+| 2021 |     6 |   18 |
+| 2020 |     1 |   18 |
+| 2021 |     1 |   18 |
+| 2021 |     1 |   25 |
+| 2021 |     9 |   20 |
+| 2022 |     9 |   20 |
+| 2022 |     9 |    2 |
+| 2022 |     7 |    3 |
+| 2022 |     7 |    3 |
+| 2022 |     6 |    1 |
+| 2022 |     5 |    1 |
+| 2022 |     5 |    1 |
+| 2021 |     1 |    1 |
+| 2022 |     1 |    1 |
++------+-------+------+
+38 rows in set (0.001 sec)
+
+*******Q81*********************************************
+
+select ename  from employee order by  ename asc;
++---------+
+| ename   |
++---------+
+| bina    |
+| brida   |
+| chintu  |
+| ginal   |
+| hital   |
+| jay     |
+| jinal   |
+| karan   |
+| krina   |
+| kritu   |
+| lanu    |
+| lanu    |
+| menal   |
+| mital   |
+| mohan   |
+| nehal   |
+| panu    |
+| pooja   |
+| rehan   |
+| renu    |
+| rima    |
+| rima    |
+| rohan   |
+| ronak   |
+| saloni  |
+| sanket  |
+| sanu    |
+| setu    |
+| shivam  |
+| shnehal |
+| sita    |
+| smit    |
+| suraj   |
+| tarun   |
+| umiaya  |
+| uvesh   |
+| vihan   |
+| vivek   |
++---------+
+38 rows in set (0.001 sec)
+
+*******Q82*********************************************
+
+select ename  from employee order by  ename desc;
++---------+
+| ename   |
++---------+
+| vivek   |
+| vihan   |
+| uvesh   |
+| umiaya  |
+| tarun   |
+| suraj   |
+| smit    |
+| sita    |
+| shnehal |
+| shivam  |
+| setu    |
+| sanu    |
+| sanket  |
+| saloni  |
+| ronak   |
+| rohan   |
+| rima    |
+| rima    |
+| renu    |
+| rehan   |
+| pooja   |
+| panu    |
+| nehal   |
+| mohan   |
+| mital   |
+| menal   |
+| lanu    |
+| lanu    |
+| kritu   |
+| krina   |
+| karan   |
+| jinal   |
+| jay     |
+| hital   |
+| ginal   |
+| chintu  |
+| brida   |
+| bina    |
++---------+
+38 rows in set (0.001 sec)
+
+*******Q83*********************************************
+
+select ename,salary  from employee order by  ename asc, salary desc;
++---------+--------+
+| ename   | salary |
++---------+--------+
+| bina    |  45000 |
+| brida   |  95000 |
+| chintu  |   9000 |
+| ginal   |   9000 |
+| hital   |  30000 |
+| jay     |   7000 |
+| jinal   |   6000 |
+| karan   |   5000 |
+| krina   |   5000 |
+| kritu   |  10000 |
+| lanu    |  15000 |
+| lanu    |  10000 |
+| menal   |   9000 |
+| mital   |   3000 |
+| mohan   |   6000 |
+| nehal   |  15000 |
+| panu    |  65000 |
+| pooja   |  55000 |
+| rehan   |   3000 |
+| renu    |  20000 |
+| rima    |  37000 |
+| rima    |  37000 |
+| rohan   |   5000 |
+| ronak   |  27000 |
+| saloni  |  35000 |
+| sanket  |  10000 |
+| sanu    |  25000 |
+| setu    |   7000 |
+| shivam  |  15000 |
+| shnehal |  15000 |
+| sita    |  10000 |
+| smit    |   5000 |
+| suraj   |  50000 |
+| tarun   |  35000 |
+| umiaya  |   5000 |
+| uvesh   |   5000 |
+| vihan   |   5550 |
+| vivek   |  20000 |
++---------+--------+
+38 rows in set (0.001 sec)
+
+
+*******Q84*********************************************
+
+select ename from employee where ename like 'sh%';
++---------+
+| ename   |
++---------+
+| shivam  |
+| shnehal |
++---------+
+2 rows in set (0.001 sec)
+
+*******Q85*********************************************
+
+select ename from employee where ename like 'so%' or ename like'sh%';
++---------+
+| ename   |
++---------+
+| shivam  |
+| shnehal |
++---------+
+2 rows in set (0.001 sec)
+
+*******Q86*********************************************
+
+ select ename from employee where ename='setu' or ename ='vive';
++-------+
+| ename |
++-------+
+| setu  |
++-------+
+1 row in set (0.001 sec)
+
+*******Q87*********************************************
+
+ select ename from employee where ename like 'm%';
++-------+
+| ename |
++-------+
+| mohan |
+| menal |
+| mital |
++-------+
+3 rows in set (0.001 sec)
+
+*******Q88*********************************************
+select * from employee where ename like '%o%';
++-------+--------+-----------+--------+--------+-------------+-----------+---------+---------+
+| empid | ename  | deptinfo  | deptno | salary | joiningdate | comission | camount | address |
++-------+--------+-----------+--------+--------+-------------+-----------+---------+---------+
+|     4 | mohan  | clerk     |    604 |   6000 | 2022-07-15  |         0 |       0 | mumbai  |
+|    11 | ronak  | developer |    605 |  27000 | 2021-04-01  |         1 |    1500 | jaipur  |
+|    22 | pooja  | manager   |    601 |  55000 | 2020-07-20  |         1 |    6000 | kerala  |
+|    23 | saloni | hr        |    603 |  35000 | 2021-05-02  |         0 |       0 | jaipur  |
+|    35 | rohan  | tranning  |    602 |   5000 | 2022-05-01  |         1 |    3000 | mumbai  |
++-------+--------+-----------+--------+--------+-------------+-----------+---------+---------+
+5 rows in set (0.001 sec)
+
+
+*******Q89*********************************************
+
+select * from employee where ename like '%u';
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename  | deptinfo             | deptno | salary | joiningdate | comission | camount | address   |
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+|     1 | setu   | manager              |    601 |   7000 | 2022-12-31  |         0 |    1000 | goa       |
+|     9 | renu   | developer            |    605 |  20000 | 2022-05-10  |         0 |       0 | mehsana   |
+|    16 | lanu   | project co-ordinater |    606 |  15000 | 2021-02-01  |         0 |       0 | surat     |
+|    17 | lanu   | project co-ordinater |    606 |  10000 | 2021-06-09  |         1 |   15000 | mumbai    |
+|    21 | panu   | manager              |    601 |  65000 | 2020-05-29  |         1 |    4000 | agra      |
+|    24 | sanu   | hr                   |    603 |  25000 | 2021-07-22  |         0 |       0 | ahmedabad |
+|    29 | kritu  | clerk                |    604 |  10000 | 2021-09-20  |         1 |    2500 | pune      |
+|    30 | chintu | clerk                |    604 |   9000 | 2022-09-20  |         1 |    1500 | jaipur    |
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+8 rows in set (0.001 sec)
+
+*******Q90*********************************************
+
+select * from employee where ename like 's___';
++-------+-------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename | deptinfo             | deptno | salary | joiningdate | comission | camount | address   |
++-------+-------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+|     1 | setu  | manager              |    601 |   7000 | 2022-12-31  |         0 |    1000 | goa       |
+|    19 | smit  | project co-ordinater |    606 |   5000 | 2021-09-29  |         0 |       0 | kerala    |
+|    24 | sanu  | hr                   |    603 |  25000 | 2021-07-22  |         0 |       0 | ahmedabad |
+|    36 | sita  | hr                   |    603 |  10000 | 2022-05-01  |         0 |       0 | patan     |
++-------+-------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+4 rows in set (0.263 sec)
+
+
+*******Q91*********************************************
+select * from employee where ename like '___u';
++-------+-------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename | deptinfo             | deptno | salary | joiningdate | comission | camount | address   |
++-------+-------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+|     1 | setu  | manager              |    601 |   7000 | 2022-12-31  |         0 |    1000 | goa       |
+|     9 | renu  | developer            |    605 |  20000 | 2022-05-10  |         0 |       0 | mehsana   |
+|    16 | lanu  | project co-ordinater |    606 |  15000 | 2021-02-01  |         0 |       0 | surat     |
+|    17 | lanu  | project co-ordinater |    606 |  10000 | 2021-06-09  |         1 |   15000 | mumbai    |
+|    21 | panu  | manager              |    601 |  65000 | 2020-05-29  |         1 |    4000 | agra      |
+|    24 | sanu  | hr                   |    603 |  25000 | 2021-07-22  |         0 |       0 | ahmedabad |
++-------+-------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+6 rows in set (0.001 sec)
+
+*******Q92*********************************************
+
+ select * from employee where salary > 40000;
++-------+-------+-----------+--------+--------+-------------+-----------+---------+---------+
+| empid | ename | deptinfo  | deptno | salary | joiningdate | comission | camount | address |
++-------+-------+-----------+--------+--------+-------------+-----------+---------+---------+
+|    10 | suraj | developer |    605 |  50000 | 2021-01-10  |         1 |    7000 | jaipur  |
+|    21 | panu  | manager   |    601 |  65000 | 2020-05-29  |         1 |    4000 | agra    |
+|    22 | pooja | manager   |    601 |  55000 | 2020-07-20  |         1 |    6000 | kerala  |
+|    25 | bina  | hr        |    603 |  45000 | 2021-06-18  |         0 |       0 | goa     |
+|    26 | brida | hr        |    603 |  95000 | 2020-01-18  |         1 |    1200 | jaipur  |
++-------+-------+-----------+--------+--------+-------------+-----------+---------+---------+
+5 rows in set (0.001 sec)
+
+*******Q93*********************************************
+
+select * from employee where salary < 6000;
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename  | deptinfo             | deptno | salary | joiningdate | comission | camount | address   |
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+|     2 | uvesh  | training             |    602 |   5000 | 2016-05-04  |         0 |       0 | ahmedabad |
+|    18 | vihan  | project co-ordinater |    606 |   5550 | 2021-09-29  |         0 |       0 | pune      |
+|    19 | smit   | project co-ordinater |    606 |   5000 | 2021-09-29  |         0 |       0 | kerala    |
+|    27 | umiaya | clerk                |    604 |   5000 | 2021-01-18  |         1 |     500 | surat     |
+|    28 | krina  | clerk                |    604 |   5000 | 2021-01-25  |         1 |    2000 | goa       |
+|    33 | mital  | tranning             |    602 |   3000 | 2022-07-03  |         0 |       0 | surat     |
+|    34 | rehan  | tranning             |    602 |   3000 | 2022-06-01  |         0 |       0 | goa       |
+|    35 | rohan  | tranning             |    602 |   5000 | 2022-05-01  |         1 |    3000 | mumbai    |
+|    37 | karan  | pa                   |    607 |   5000 | 2021-01-01  |         1 |     500 | mumbai    |
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+9 rows in set (0.001 sec)
+
+*******Q94*********************************************
+select * from employee where salary between 5000 and 7000;
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+| empid | ename  | deptinfo             | deptno | salary | joiningdate | comission | camount | address   |
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+|     1 | setu   | manager              |    601 |   7000 | 2022-12-31  |         0 |    1000 | goa       |
+|     2 | uvesh  | training             |    602 |   5000 | 2016-05-04  |         0 |       0 | ahmedabad |
+|     4 | mohan  | clerk                |    604 |   6000 | 2022-07-15  |         0 |       0 | mumbai    |
+|    18 | vihan  | project co-ordinater |    606 |   5550 | 2021-09-29  |         0 |       0 | pune      |
+|    19 | smit   | project co-ordinater |    606 |   5000 | 2021-09-29  |         0 |       0 | kerala    |
+|    27 | umiaya | clerk                |    604 |   5000 | 2021-01-18  |         1 |     500 | surat     |
+|    28 | krina  | clerk                |    604 |   5000 | 2021-01-25  |         1 |    2000 | goa       |
+|    32 | jinal  | clerk                |    604 |   6000 | 2022-07-03  |         0 |       0 | patan     |
+|    35 | rohan  | tranning             |    602 |   5000 | 2022-05-01  |         1 |    3000 | mumbai    |
+|    37 | karan  | pa                   |    607 |   5000 | 2021-01-01  |         1 |     500 | mumbai    |
+|    38 | jay    | pa                   |    607 |   7000 | 2022-01-01  |         0 |       0 |           |
++-------+--------+----------------------+--------+--------+-------------+-----------+---------+-----------+
+11 rows in set (0.001 sec)
+
+*******Q95*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************
+
+*******Q88*********************************************

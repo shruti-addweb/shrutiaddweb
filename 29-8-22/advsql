@@ -1,0 +1,126 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+store procedure
+
+MariaDB [cakeshop]> delimiter //
+MariaDB [cakeshop]> create procedure se()
+    -> begin 
+    -> select ename,eid,salary from employee ;
+    -> end //
+Query OK, 0 rows affected (0.069 sec)
+
+MariaDB [cakeshop]> delimiter ;
+MariaDB [cakeshop]> call se;
++--------+------+--------+
+| ename  | eid  | salary |
++--------+------+--------+
+| hemang |   61 |   3000 |
+| pintoo |   62 |   4000 |
+| pinay  |   63 |   4800 |
+| seena  |   64 |   6800 |
+| anu    |   65 |   5000 |
+| annala |   66 |   5500 |
+| bina   |   67 |   9500 |
+| nitu   |   68 |   9500 |
+| danel  |   69 |   5500 |
+| chintu |   70 |   7500 |
++--------+------+--------+
+10 rows in set (0.001 sec)
+
+Query OK, 0 rows affected (0.002 sec)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+IN PARAMETER
+
+MariaDB [department]> delimiter //
+MariaDB [department]> create procedure jobs(in jobtitle varchar(30))
+    -> begin
+    -> select empid,ename,deptinfo from employee where deptinfo=jobtitle;
+    -> end //
+Query OK, 0 rows affected (0.395 sec)
+
+MariaDB [department]> delimiter ;
+MariaDB [department]> call jobs('hr');
++-------+--------+----------+
+| empid | ename  | deptinfo |
++-------+--------+----------+
+|     3 | sanket | hr       |
+|    23 | saloni | hr       |
+|    24 | sanu   | hr       |
+|    25 | bina   | hr       |
+|    26 | brida  | hr       |
+|    36 | sita   | hr       |
++-------+--------+----------+
+6 rows in set (0.001 sec)
+
+Query OK, 0 rows affected (0.002 sec)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+OUT PARAMETER
+
+MariaDB [department]> delimiter //
+MariaDB [department]> create procedure counst(out totalemployee int)
+    -> begin 
+    -> select count(ename) INTO totalemployee from employee ;
+    -> end //
+Query OK, 0 rows affected (0.118 sec)
+
+MariaDB [department]> delimiter ;
+
+MariaDB [department]> call counst(@counts);
+Query OK, 1 row affected (0.038 sec)
+
+MariaDB [department]> select @counts as totalemployee ;
++---------------+
+| totalemployee |
++---------------+
+|            38 |
++---------------+
+1 row in set (0.000 sec)
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+INOUT PARAMETER
+
+MariaDB [department]> delimiter //
+MariaDB [department]> create procedure hoinout(inout totalsalary int,In jobtitles varchar(30)) 
+    -> begin
+    -> select sum(salary) INTO totalsalary from employee where deptinfo=jobtitles;
+    -> end //
+Query OK, 0 rows affected (0.600 sec)
+
+MariaDB [department]> delimiter ;
+MariaDB [department]> call hoinout(@k,'hr') ;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [department]> select @k as total ;
++--------+
+| total  |
++--------+
+| 220000 |
++--------+
+1 row in set (0.000 sec)
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+create user
+
+MariaDB [department]> CREATE USER 'sam'@'localhost' IDENTIFIED BY 'password';
+Query OK, 0 rows affected (0.168 sec)
+
+grant permission
+
+MariaDB [department]> GRANT ALL ON mystudentdb.* TO sam@localhost; 
+Query OK, 0 rows affected (0.072 sec)
+
+drop user
+
+DROP USER sam@localhost;
+Query OK, 0 rows affected (0.024 sec)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

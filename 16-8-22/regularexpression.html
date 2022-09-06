@@ -1,46 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regular expression</title>
+</head>
 <body>
+    <p id="demo"></p> 
+    <script type="text/javascript">
+        let reg = /hello/;
+       
+        document.write(reg);
+        document.write(reg.source);
 
-<h2>JavaScript Regular Expressions</h2>
+        let reg1 = /shruti/g;
+        let s = "this is great shruti hello great shruti" ;
+        let result = reg1.exec(s);
+        document.write(result.index);
+        
+        result = reg1.exec(s);
+        console.log(result);
 
+        
 
-<p id="demo"></p>
+        let text ="hello world";
+        let result1 = text.search(/WOrld/i);
+        console.log (result1.input);
+        
+        let sms = /my/;
+        let txt = "hi my name is xyz";
+        
+        let re = sms.exec(txt);
+        document.write(re.index);
 
-<script>
-let text = "i used for case sensative .match is a method used for match";
-let pattern = /method/i;
-let result = text.match(pattern);
-document.write (result);
-
-let text1 = "search method is used to show poisition of string from 0 "; 
-let n = text1.search("poisition");
-document.write(n);
-
-let text2 = "replace is used for to replace word hello";
-let result1 = text2.replace("hello", "thanks");
-document.write (result1);
-
-let text3 = 'is this all';
-
-let pattern1 = /^is/g;
-let result2 = text3.match(pattern1);
-document.write (result2);
-
-let reg =/shruti/g; // g is used for global search
-document.write (reg);
-
-let s = "this is shruti example shruti <br>";
-// exec() This function will return an array for match or null for no match
-let r = reg.exec(s);
-document.write (r);
-r = reg.exec(s);
-document.write(r);
-
-document.write(s.input);
+        let txt1 = `hello my 
+        name is xyz`;
+        let pattern = /^hello/m;
+        document.write (pattern);
+        let pt1 = /$xyz/m;
+        document.getElementById("demo").innerHTML = +pt1;
 
 
-</script>
+        
 
+        let text2 = "Is this all there is?";
+        let pattern1 = /[h]/g;
+        let result2 = text2.match(pattern1);
+
+        document.getElementById("demo").innerHTML = result2;
+
+
+        let text3 = "it will not printed char inside the bracket";
+        let pattern3 = /[^w]/g;
+        let result3 = text3.match(pattern3);
+        document.write (result3);
+
+
+
+    </script>
+   
 </body>
 </html>

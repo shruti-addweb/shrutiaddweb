@@ -1,0 +1,581 @@
+
+select * from dept;
++----+-----------+-----------------+--------------+
+| id | dname     | eemail          | desigination |
++----+-----------+-----------------+--------------+
+|  3 | desiginer | mital@gmail.com | mca          |
+|  4 | developer | rohan@gmail.com | bscit        |
+|  6 | manager   | vivu@gmail.com  | mba          |
+|  7 | hr        | hiren@gmail.com | bcom         |
+|  8 | developer | pintu@gmail.com | b-tech       |
+|  9 | developer | ranu@gmail.com  | mscit        |
+| 10 | hr        | a@gmail.com     | bcom         |
+| 11 | developer | b@gmail.com     | mscit        |
+| 12 | manager   | c@gmail.com     | mba          |
+| 13 | hr        | d@gmail.com     | bcom         |
+| 14 | developer | e@gmail.com     | mca          |
+| 16 | desiginer | h@gmail.com     | b-tech       |
++----+-----------+-----------------+--------------+
+12 rows in set (0.001 sec)
+
+
+
+select * from emp;
++----+-------+--------------+-----------------+-----------+
+| id | ename | desigination | eemail          | address   |
++----+-------+--------------+-----------------+-----------+
+|  1 | mital | mca          | mital@gmail.com | ahmedabad |
+|  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+|  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+|  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+|  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+|  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+|  9 | karan | mca          | karan@gmail.com | surat     |
+| 10 | a     | bcom         | a@gmail.com     | goa       |
+| 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| 12 | c     | mba          | c@gmail.com     | mumbai    |
+| 13 | d     | bcom         | d@gmail.com     | surat     |
++----+-------+--------------+-----------------+-----------+
+11 rows in set (0.001 sec)
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+INNER JOIN
+
+
+ emp.id, emp.ename,  emp.eemail, emp.desigination,dept.dname from emp INNER JOIN dept ON emp.id=dept.id;
++----+-------+-----------------+--------------+-----------+
+| id | ename | eemail          | desigination | dname     |
++----+-------+-----------------+--------------+-----------+
+|  3 | ranu  | ranu@gmail.com  | mscit        | desiginer |
+|  6 | vivu  | vivu@gmail.com  | mba          | manager   |
+|  8 | hiren | hiren@gmail.com | bcom         | developer |
+|  9 | karan | karan@gmail.com | mca          | developer |
+| 10 | a     | a@gmail.com     | bcom         | hr        |
+| 11 | b     | b@gmail.com     | mscit        | developer |
+| 12 | c     | c@gmail.com     | mba          | manager   |
+| 13 | d     | d@gmail.com     | bcom         | hr        |
++----+-------+-----------------+--------------+-----------+
+8 rows in set (0.001 sec)
+
+select  emp.id, emp.ename,  emp.eemail, emp.desigination,dept.dname from emp INNER JOIN dept ON emp.id=dept.id where dept.id=3;
++----+-------+----------------+--------------+-----------+
+| id | ename | eemail         | desigination | dname     |
++----+-------+----------------+--------------+-----------+
+|  3 | ranu  | ranu@gmail.com | mscit        | desiginer |
++----+-------+----------------+--------------+-----------+
+1 row in set (0.001 sec)
+
+
+refernce 
+
+select  e.id, e.ename,  e.eemail, e.desigination,d.dname from emp e  INNER JOIN dept d  ON e.id=d.id where d.dname='developer';
++----+-------+-----------------+--------------+-----------+
+| id | ename | eemail          | desigination | dname     |
++----+-------+-----------------+--------------+-----------+
+|  8 | hiren | hiren@gmail.com | bcom         | developer |
+|  9 | karan | karan@gmail.com | mca          | developer |
+| 11 | b     | b@gmail.com     | mscit        | developer |
++----+-------+-----------------+--------------+-----------+
+3 rows in set (0.002 sec)
+
+select  e.id, e.ename,  e.eemail, e.desigination,d.dname from emp e  INNER JOIN dept d  ON e.desigination=d.desigination ;
++----+-------+-----------------+--------------+-----------+
+| id | ename | eemail          | desigination | dname     |
++----+-------+-----------------+--------------+-----------+
+|  1 | mital | mital@gmail.com | mca          | desiginer |
+|  9 | karan | karan@gmail.com | mca          | desiginer |
+|  5 | rohan | rohan@gmail.com | bscit        | developer |
+|  6 | vivu  | vivu@gmail.com  | mba          | manager   |
+| 12 | c     | c@gmail.com     | mba          | manager   |
+|  8 | hiren | hiren@gmail.com | bcom         | hr        |
+| 10 | a     | a@gmail.com     | bcom         | hr        |
+| 13 | d     | d@gmail.com     | bcom         | hr        |
+|  2 | pintu | pintu@gmail.com | b-tech       | developer |
+|  3 | ranu  | ranu@gmail.com  | mscit        | developer |
+| 11 | b     | b@gmail.com     | mscit        | developer |
+|  8 | hiren | hiren@gmail.com | bcom         | hr        |
+| 10 | a     | a@gmail.com     | bcom         | hr        |
+| 13 | d     | d@gmail.com     | bcom         | hr        |
+|  3 | ranu  | ranu@gmail.com  | mscit        | developer |
+| 11 | b     | b@gmail.com     | mscit        | developer |
+|  6 | vivu  | vivu@gmail.com  | mba          | manager   |
+| 12 | c     | c@gmail.com     | mba          | manager   |
+|  8 | hiren | hiren@gmail.com | bcom         | hr        |
+| 10 | a     | a@gmail.com     | bcom         | hr        |
+| 13 | d     | d@gmail.com     | bcom         | hr        |
+|  1 | mital | mital@gmail.com | mca          | developer |
+|  9 | karan | karan@gmail.com | mca          | developer |
+|  2 | pintu | pintu@gmail.com | b-tech       | desiginer |
++----+-------+-----------------+--------------+-----------+
+24 rows in set (0.002 sec)
+
+
+select  e.id, e.ename,  e.eemail, e.desigination,d.dname from emp e  INNER JOIN dept d  ON e.desigination=d.desigination where d.id>4;
++----+-------+-----------------+--------------+-----------+
+| id | ename | eemail          | desigination | dname     |
++----+-------+-----------------+--------------+-----------+
+|  6 | vivu  | vivu@gmail.com  | mba          | manager   |
+| 12 | c     | c@gmail.com     | mba          | manager   |
+|  8 | hiren | hiren@gmail.com | bcom         | hr        |
+| 10 | a     | a@gmail.com     | bcom         | hr        |
+| 13 | d     | d@gmail.com     | bcom         | hr        |
+|  2 | pintu | pintu@gmail.com | b-tech       | developer |
+|  3 | ranu  | ranu@gmail.com  | mscit        | developer |
+| 11 | b     | b@gmail.com     | mscit        | developer |
+|  8 | hiren | hiren@gmail.com | bcom         | hr        |
+| 10 | a     | a@gmail.com     | bcom         | hr        |
+| 13 | d     | d@gmail.com     | bcom         | hr        |
+|  3 | ranu  | ranu@gmail.com  | mscit        | developer |
+| 11 | b     | b@gmail.com     | mscit        | developer |
+|  6 | vivu  | vivu@gmail.com  | mba          | manager   |
+| 12 | c     | c@gmail.com     | mba          | manager   |
+|  8 | hiren | hiren@gmail.com | bcom         | hr        |
+| 10 | a     | a@gmail.com     | bcom         | hr        |
+| 13 | d     | d@gmail.com     | bcom         | hr        |
+|  1 | mital | mital@gmail.com | mca          | developer |
+|  9 | karan | karan@gmail.com | mca          | developer |
+|  2 | pintu | pintu@gmail.com | b-tech       | desiginer |
++----+-------+-----------------+--------------+-----------+
+21 rows in set (0.001 sec)
+
+ select  e.id, e.ename,  e.eemail, e.desigination,d.dname from emp e  INNER JOIN dept d  ON e.desigination=d.desigination where d.id=6 and e.ename='vivu';
++----+-------+----------------+--------------+---------+
+| id | ename | eemail         | desigination | dname   |
++----+-------+----------------+--------------+---------+
+|  6 | vivu  | vivu@gmail.com | mba          | manager |
++----+-------+----------------+--------------+---------+
+1 row in set (0.001 sec)
+
+
+
+
+select  e.id, e.ename,  e.eemail, e.desigination,d.dname from emp e  INNER JOIN dept d  ON e.desigination=d.desigination where d.dname='manager';
++----+-------+----------------+--------------+---------+
+| id | ename | eemail         | desigination | dname   |
++----+-------+----------------+--------------+---------+
+|  6 | vivu  | vivu@gmail.com | mba          | manager |
+| 12 | c     | c@gmail.com    | mba          | manager |
+|  6 | vivu  | vivu@gmail.com | mba          | manager |
+| 12 | c     | c@gmail.com    | mba          | manager |
++----+-------+----------------+--------------+---------+
+4 rows in set (0.002 sec)
+
+
+select  e.id, e.ename,  e.eemail, e.desigination,d.dname from emp e  INNER JOIN dept d  ON e.id=d.id where e.ename in('ranu','a','d');
++----+-------+----------------+--------------+-----------+
+| id | ename | eemail         | desigination | dname     |
++----+-------+----------------+--------------+-----------+
+|  3 | ranu  | ranu@gmail.com | mscit        | desiginer |
+| 10 | a     | a@gmail.com    | bcom         | hr        |
+| 13 | d     | d@gmail.com    | bcom         | hr        |
++----+-------+----------------+--------------+-----------+
+3 rows in set (0.001 sec)
+
+
+select  e.id, e.ename,  e.eemail, e.desigination,d.dname from emp e  INNER JOIN dept d  ON e.id=d.id where e.id between 3 and 10;
++----+-------+-----------------+--------------+-----------+
+| id | ename | eemail          | desigination | dname     |
++----+-------+-----------------+--------------+-----------+
+|  3 | ranu  | ranu@gmail.com  | mscit        | desiginer |
+|  6 | vivu  | vivu@gmail.com  | mba          | manager   |
+|  8 | hiren | hiren@gmail.com | bcom         | developer |
+|  9 | karan | karan@gmail.com | mca          | developer |
+| 10 | a     | a@gmail.com     | bcom         | hr        |
++----+-------+-----------------+--------------+-----------+
+5 rows in set (0.020 sec)
+
+
+select  e.id, e.ename,  e.eemail, e.desigination,d.dname from emp e  INNER JOIN dept d  ON e.id=d.id where e.ename like'_i%_';
++----+-------+-----------------+--------------+-----------+
+| id | ename | eemail          | desigination | dname     |
++----+-------+-----------------+--------------+-----------+
+|  6 | vivu  | vivu@gmail.com  | mba          | manager   |
+|  8 | hiren | hiren@gmail.com | bcom         | developer |
++----+-------+-----------------+--------------+-----------+
+2 rows in set (0.001 sec)
+
+select  e.id, e.ename,  e.eemail, e.desigination from  dept d  LEFT JOIN emp e  ON e.id=d.id;
++------+-------+-----------------+--------------+
+| id   | ename | eemail          | desigination |
++------+-------+-----------------+--------------+
+|    3 | ranu  | ranu@gmail.com  | mscit        |
+|    6 | vivu  | vivu@gmail.com  | mba          |
+|    8 | hiren | hiren@gmail.com | bcom         |
+|    9 | karan | karan@gmail.com | mca          |
+|   10 | a     | a@gmail.com     | bcom         |
+|   11 | b     | b@gmail.com     | mscit        |
+|   12 | c     | c@gmail.com     | mba          |
+|   13 | d     | d@gmail.com     | bcom         |
+| NULL | NULL  | NULL            | NULL         |
+| NULL | NULL  | NULL            | NULL         |
+| NULL | NULL  | NULL            | NULL         |
+| NULL | NULL  | NULL            | NULL         |
++------+-------+-----------------+--------------+
+12 rows in set (0.002 sec)
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+RIGHT JOINS
+
+ select e.id, e.ename, e.desigination, s.tsalary,s.eemail  from emp e RIGHT JOIN stable s  on e.eemail=s.eemail ;
++------+-------+--------------+---------+-----------------+
+| id   | ename | desigination | tsalary | eemail          |
++------+-------+--------------+---------+-----------------+
+|    1 | mital | mca          |   21000 | mital@gmail.com |
+|    2 | pintu | b-tech       |   19000 | pintu@gmail.com |
+|    3 | ranu  | mscit        |   15000 | ranu@gmail.com  |
+|    5 | rohan | bscit        |   18000 | rohan@gmail.com |
+|    6 | vivu  | mba          |   15000 | vivu@gmail.com  |
+|    8 | hiren | bcom         |   30000 | hiren@gmail.com |
+|   10 | a     | bcom         |   15000 | a@gmail.com     |
+|   11 | b     | mscit        |   18000 | b@gmail.com     |
+|   12 | c     | mba          |   15000 | c@gmail.com     |
+|   13 | d     | bcom         |   30000 | d@gmail.com     |
+| NULL | NULL  | NULL         |   15000 | km@gmail.com    |
++------+-------+--------------+---------+-----------------+
+11 rows in set (0.917 sec)
+
+
+select  e.ename, e.desigination, s.tsalary,s.eemail,s.bonus*12  from emp e RIGHT JOIN stable s  on e.eemail=s.eemail  ;
++-------+--------------+---------+-----------------+------------+
+| ename | desigination | tsalary | eemail          | s.bonus*12 |
++-------+--------------+---------+-----------------+------------+
+| mital | mca          |   21000 | mital@gmail.com |      18000 |
+| pintu | b-tech       |   19000 | pintu@gmail.com |      14400 |
+| ranu  | mscit        |   15000 | ranu@gmail.com  |      12000 |
+| rohan | bscit        |   18000 | rohan@gmail.com |      12000 |
+| vivu  | mba          |   15000 | vivu@gmail.com  |       9600 |
+| hiren | bcom         |   30000 | hiren@gmail.com |      30000 |
+| a     | bcom         |   15000 | a@gmail.com     |      12000 |
+| b     | mscit        |   18000 | b@gmail.com     |      30000 |
+| c     | mba          |   15000 | c@gmail.com     |       9600 |
+| d     | bcom         |   30000 | d@gmail.com     |      14400 |
+| NULL  | NULL         |   15000 | km@gmail.com    |      12000 |
++-------+--------------+---------+-----------------+------------+
+11 rows in set (0.179 sec)
+
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+CROSS JOIN
+
+select * from stable CROSS JOIN emp where id between 1 and 5;
++-----------------+-----------+-------+---------+----+-------+--------------+-----------------+-----------+
+| eemail          | dedection | bonus | tsalary | id | ename | desigination | eemail          | address   |
++-----------------+-----------+-------+---------+----+-------+--------------+-----------------+-----------+
+| a@gmail.com     |      4000 |  1000 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| b@gmail.com     |      6000 |  2500 |   18000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| c@gmail.com     |      4000 |   800 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| d@gmail.com     |      6000 |  1200 |   30000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| km@gmail.com    |      4000 |  1000 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| mital@gmail.com |      6000 |  1500 |   21000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| a@gmail.com     |      4000 |  1000 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| b@gmail.com     |      6000 |  2500 |   18000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| c@gmail.com     |      4000 |   800 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| d@gmail.com     |      6000 |  1200 |   30000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| km@gmail.com    |      4000 |  1000 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| mital@gmail.com |      6000 |  1500 |   21000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| a@gmail.com     |      4000 |  1000 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| b@gmail.com     |      6000 |  2500 |   18000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| c@gmail.com     |      4000 |   800 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| d@gmail.com     |      6000 |  1200 |   30000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| km@gmail.com    |      4000 |  1000 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| mital@gmail.com |      6000 |  1500 |   21000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| a@gmail.com     |      4000 |  1000 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| b@gmail.com     |      6000 |  2500 |   18000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| c@gmail.com     |      4000 |   800 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| d@gmail.com     |      6000 |  1200 |   30000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| km@gmail.com    |      4000 |  1000 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| mital@gmail.com |      6000 |  1500 |   21000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
++-----------------+-----------+-------+---------+----+-------+--------------+-----------------+-----------+
+44 rows in set (0.001 sec)
+
+
+
+select * from stable CROSS JOIN emp;
++-----------------+-----------+-------+---------+----+-------+--------------+-----------------+-----------+
+| eemail          | dedection | bonus | tsalary | id | ename | desigination | eemail          | address   |
++-----------------+-----------+-------+---------+----+-------+--------------+-----------------+-----------+
+| a@gmail.com     |      4000 |  1000 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| b@gmail.com     |      6000 |  2500 |   18000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| c@gmail.com     |      4000 |   800 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| d@gmail.com     |      6000 |  1200 |   30000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| km@gmail.com    |      4000 |  1000 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| mital@gmail.com |      6000 |  1500 |   21000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  1 | mital | mca          | mital@gmail.com | ahmedabad |
+| a@gmail.com     |      4000 |  1000 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| b@gmail.com     |      6000 |  2500 |   18000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| c@gmail.com     |      4000 |   800 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| d@gmail.com     |      6000 |  1200 |   30000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| km@gmail.com    |      4000 |  1000 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| mital@gmail.com |      6000 |  1500 |   21000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  2 | pintu | b-tech       | pintu@gmail.com | ahmedabad |
+| a@gmail.com     |      4000 |  1000 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| b@gmail.com     |      6000 |  2500 |   18000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| c@gmail.com     |      4000 |   800 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| d@gmail.com     |      6000 |  1200 |   30000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| km@gmail.com    |      4000 |  1000 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| mital@gmail.com |      6000 |  1500 |   21000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  3 | ranu  | mscit        | ranu@gmail.com  | surat     |
+| a@gmail.com     |      4000 |  1000 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| b@gmail.com     |      6000 |  2500 |   18000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| c@gmail.com     |      4000 |   800 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| d@gmail.com     |      6000 |  1200 |   30000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| km@gmail.com    |      4000 |  1000 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| mital@gmail.com |      6000 |  1500 |   21000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  5 | rohan | bscit        | rohan@gmail.com | jaipur    |
+| a@gmail.com     |      4000 |  1000 |   15000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| b@gmail.com     |      6000 |  2500 |   18000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| c@gmail.com     |      4000 |   800 |   15000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| d@gmail.com     |      6000 |  1200 |   30000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| km@gmail.com    |      4000 |  1000 |   15000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| mital@gmail.com |      6000 |  1500 |   21000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  6 | vivu  | mba          | vivu@gmail.com  | jaipur    |
+| a@gmail.com     |      4000 |  1000 |   15000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| b@gmail.com     |      6000 |  2500 |   18000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| c@gmail.com     |      4000 |   800 |   15000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| d@gmail.com     |      6000 |  1200 |   30000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| km@gmail.com    |      4000 |  1000 |   15000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| mital@gmail.com |      6000 |  1500 |   21000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  8 | hiren | bcom         | hiren@gmail.com | mumbai    |
+| a@gmail.com     |      4000 |  1000 |   15000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| b@gmail.com     |      6000 |  2500 |   18000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| c@gmail.com     |      4000 |   800 |   15000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| d@gmail.com     |      6000 |  1200 |   30000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| hiren@gmail.com |      9000 |  2500 |   30000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| km@gmail.com    |      4000 |  1000 |   15000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| mital@gmail.com |      6000 |  1500 |   21000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| pintu@gmail.com |      6000 |  1200 |   19000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| ranu@gmail.com  |      4000 |  1000 |   15000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| rohan@gmail.com |      5000 |  1000 |   18000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| vivu@gmail.com  |      4000 |   800 |   15000 |  9 | karan | mca          | karan@gmail.com | surat     |
+| a@gmail.com     |      4000 |  1000 |   15000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| b@gmail.com     |      6000 |  2500 |   18000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| c@gmail.com     |      4000 |   800 |   15000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| d@gmail.com     |      6000 |  1200 |   30000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| hiren@gmail.com |      9000 |  2500 |   30000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| km@gmail.com    |      4000 |  1000 |   15000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| mital@gmail.com |      6000 |  1500 |   21000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| pintu@gmail.com |      6000 |  1200 |   19000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| ranu@gmail.com  |      4000 |  1000 |   15000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| rohan@gmail.com |      5000 |  1000 |   18000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| vivu@gmail.com  |      4000 |   800 |   15000 | 10 | a     | bcom         | a@gmail.com     | goa       |
+| a@gmail.com     |      4000 |  1000 |   15000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| b@gmail.com     |      6000 |  2500 |   18000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| c@gmail.com     |      4000 |   800 |   15000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| d@gmail.com     |      6000 |  1200 |   30000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| hiren@gmail.com |      9000 |  2500 |   30000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| km@gmail.com    |      4000 |  1000 |   15000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| mital@gmail.com |      6000 |  1500 |   21000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| pintu@gmail.com |      6000 |  1200 |   19000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| ranu@gmail.com  |      4000 |  1000 |   15000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| rohan@gmail.com |      5000 |  1000 |   18000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| vivu@gmail.com  |      4000 |   800 |   15000 | 11 | b     | mscit        | b@gmail.com     | jaipur    |
+| a@gmail.com     |      4000 |  1000 |   15000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| b@gmail.com     |      6000 |  2500 |   18000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| c@gmail.com     |      4000 |   800 |   15000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| d@gmail.com     |      6000 |  1200 |   30000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| hiren@gmail.com |      9000 |  2500 |   30000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| km@gmail.com    |      4000 |  1000 |   15000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| mital@gmail.com |      6000 |  1500 |   21000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| pintu@gmail.com |      6000 |  1200 |   19000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| ranu@gmail.com  |      4000 |  1000 |   15000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| rohan@gmail.com |      5000 |  1000 |   18000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| vivu@gmail.com  |      4000 |   800 |   15000 | 12 | c     | mba          | c@gmail.com     | mumbai    |
+| a@gmail.com     |      4000 |  1000 |   15000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| b@gmail.com     |      6000 |  2500 |   18000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| c@gmail.com     |      4000 |   800 |   15000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| d@gmail.com     |      6000 |  1200 |   30000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| hiren@gmail.com |      9000 |  2500 |   30000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| km@gmail.com    |      4000 |  1000 |   15000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| mital@gmail.com |      6000 |  1500 |   21000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| pintu@gmail.com |      6000 |  1200 |   19000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| ranu@gmail.com  |      4000 |  1000 |   15000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| rohan@gmail.com |      5000 |  1000 |   18000 | 13 | d     | bcom         | d@gmail.com     | surat     |
+| vivu@gmail.com  |      4000 |   800 |   15000 | 13 | d     | bcom         | d@gmail.com     | surat     |
++-----------------+-----------+-------+---------+----+-------+--------------+-----------------+-----------+
+121 rows in set (0.002 sec)
+
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+FULL JOIN
+
+
+select e.id, e.ename, e.desigination, s.tsalary,s.eemail  from emp e LEFT JOIN stable s  on e.eemail=s.eemail UNION ALL select e.id, e.ename, e.desigination, s.tsalary,s.eemail  from emp e RIGHT JOIN stable s  on e.eemail=s.eemail ;
++------+-------+--------------+---------+-----------------+
+| id   | ename | desigination | tsalary | eemail          |
++------+-------+--------------+---------+-----------------+
+|    1 | mital | mca          |   21000 | mital@gmail.com |
+|    2 | pintu | b-tech       |   19000 | pintu@gmail.com |
+|    3 | ranu  | mscit        |   15000 | ranu@gmail.com  |
+|    5 | rohan | bscit        |   18000 | rohan@gmail.com |
+|    6 | vivu  | mba          |   15000 | vivu@gmail.com  |
+|    8 | hiren | bcom         |   30000 | hiren@gmail.com |
+|    9 | karan | mca          |    NULL | NULL            |
+|   10 | a     | bcom         |   15000 | a@gmail.com     |
+|   11 | b     | mscit        |   18000 | b@gmail.com     |
+|   12 | c     | mba          |   15000 | c@gmail.com     |
+|   13 | d     | bcom         |   30000 | d@gmail.com     |
+|    1 | mital | mca          |   21000 | mital@gmail.com |
+|    2 | pintu | b-tech       |   19000 | pintu@gmail.com |
+|    3 | ranu  | mscit        |   15000 | ranu@gmail.com  |
+|    5 | rohan | bscit        |   18000 | rohan@gmail.com |
+|    6 | vivu  | mba          |   15000 | vivu@gmail.com  |
+|    8 | hiren | bcom         |   30000 | hiren@gmail.com |
+|   10 | a     | bcom         |   15000 | a@gmail.com     |
+|   11 | b     | mscit        |   18000 | b@gmail.com     |
+|   12 | c     | mba          |   15000 | c@gmail.com     |
+|   13 | d     | bcom         |   30000 | d@gmail.com     |
+| NULL | NULL  | NULL         |   15000 | km@gmail.com    |
++------+-------+--------------+---------+-----------------+
+22 rows in set (0.003 sec)
+
+*****
+
+FULL JOIN WITH GROUP BY
+
+ select e.id, e.ename, e.desigination,sum( s.tsalary),s.eemail  from emp e LEFT JOIN stable s  on e.eemail=s.eemail UNION ALL select e.id, e.ename, e.desigination,sum( s.tsalary),s.eemail  from emp e RIGHT JOIN stable s  on e.eemail=s.eemail GROUP BY desigination ;
++------+-------+--------------+-----------------+-----------------+
+| id   | ename | desigination | sum( s.tsalary) | eemail          |
++------+-------+--------------+-----------------+-----------------+
+|    1 | mital | mca          |          196000 | mital@gmail.com |
+| NULL | NULL  | NULL         |           15000 | km@gmail.com    |
+|    2 | pintu | b-tech       |           19000 | pintu@gmail.com |
+|    8 | hiren | bcom         |           75000 | hiren@gmail.com |
+|    5 | rohan | bscit        |           18000 | rohan@gmail.com |
+|    6 | vivu  | mba          |           30000 | vivu@gmail.com  |
+|    1 | mital | mca          |           21000 | mital@gmail.com |
+|    3 | ranu  | mscit        |           33000 | ranu@gmail.com  |
++------+-------+--------------+-----------------+-----------------+
+8 rows in set (0.002 sec)
+
+
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+SUBQUERY
+
+
+select eemail,bonus*12 from stable where bonus*12 in (select max(bonus*12) from stable);
++-----------------+----------+
+| eemail          | bonus*12 |
++-----------------+----------+
+| b@gmail.com     |    30000 |
+| hiren@gmail.com |    30000 |
++-----------------+----------+
+2 rows in set (0.002 sec)
+
+
+select name,salary from sdemo where salary > (select eemail from stable where eemail='c@gmail.com');
++------+--------+
+| name | salary |
++------+--------+
+| s    |   5000 |
+| s    |   7000 |
+| p    |  10000 |
+| t    |  20000 |
+| j    |   3000 |
+| k    |   3000 |
+| o    |   2000 |
++------+--------+
+7 rows in set, 1 warning (0.001 sec)
+
+select desigination from dept GROUP BY desigination = (select ename from emp where ename='karan');
++--------------+
+| desigination |
++--------------+
+| mca          |
++--------------+
+1 row in set (0.002 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

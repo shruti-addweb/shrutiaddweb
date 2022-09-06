@@ -1,0 +1,140 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+function
+
+MariaDB [department]> create function dailys(wages decimal(10,2) )
+    -> returns decimal(10,2)
+    -> deterministic
+    -> begin
+    -> declare daily_wages decimal(10,2);
+    -> set daily_wages = wages*8;
+    -> return(daily_wages);
+    -> end //
+Query OK, 0 rows affected (1.697 sec)
+
+MariaDB [department]> delimiter ;
+
+
+MariaDB [department]> select dailys(50);
++------------+
+| dailys(50) |
++------------+
+|     400.00 |
++------------+
+1 row in set (0.033 sec)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+if else
+
+MariaDB [department]> delimiter //
+
+MariaDB [department]> create function cus(age int)
+    -> returns varchar(100)
+    -> deterministic
+    -> begin
+    -> declare cus varchar(100);
+    -> if age > 35 THEN
+    -> SET cus = 'hello maam your age is 35';
+    -> elseif (age <=35 AND age>= 30) THEN
+    -> set cus = 'hello maam your age is b';
+    -> elseif age<30 THEN
+    -> set cus ='actor';
+    -> end if;
+    -> return(cus);
+    -> end //
+
+MariaDB [department]> delimiter ;
+MariaDB [department]> select name,age,cus(age) from ages order by  age;
++------+-----+---------------------------+
+| name | age | cus(age)                  |
++------+-----+---------------------------+
+| k    |  20 | actor                     |
+| b    |  32 | hello maam your age is b  |
+| i    |  35 | hello maam your age is b  |
+| s    |  37 | hello maam your age is 35 |
+| j    |  45 | hello maam your age is 35 |
++------+-----+---------------------------+
+5 rows in set (0.002 sec)
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+syntax of before insert 
+
+MariaDB [department]> delimiter //
+MariaDB [department]> create trigger agecheck before insert on ages for each row if New.age < 0
+    -> then set New.age = 0; 
+    -> end if;
+    -> //
+Query OK, 0 rows affected (0.123 sec)
+
+MariaDB [department]> delimiter ;
+
+MariaDB [department]> insert into ages values('o',-50,6);
+Query OK, 1 row affected (0.095 sec)
+
+MariaDB [department]> select * from ages;
++------+-----+----+
+| name | age | id |
++------+-----+----+
+| s    |  37 |  1 |
+| b    |  32 |  2 |
+| j    |  45 |  3 |
+| k    |  20 |  4 |
+| i    |  35 |  5 |
+| o    |   0 |  6 |
++------+-----+----+
+6 rows in set (0.001 sec)
+
+MariaDB [department]> insert into ages values('p',50,7);
+Query OK, 1 row affected (0.053 sec)
+
+MariaDB [department]> select * from ages;
++------+-----+----+
+| name | age | id |
++------+-----+----+
+| s    |  37 |  1 |
+| b    |  32 |  2 |
+| j    |  45 |  3 |
+| k    |  20 |  4 |
+| i    |  35 |  5 |
+| o    |   0 |  6 |
+| p    |  50 |  7 |
++------+-----+----+
+7 rows in set (0.001 sec)
+
+
+MariaDB [department]> CREATE TABLE members (id INT AUTO_INCREMENT primary key,name VARCHAR(100) NOT NULL, email VARCHAR(255),birthDate DATE);
+Query OK, 0 rows affected (0.466 sec)
+
+MariaDB [department]> CREATE TABLE reminders(id INT AUTO_INCREMENT,memberId INT,message VARCHAR(255) NOT NULL,PRIMARY KEY (id , memberId) );
+Query OK, 0 rows affected (0.402 sec)
+
+MariaDB [department]> delimiter //
+MariaDB [department]> create trigger after_member_insert
+    -> after insert
+    -> on members for each row
+    -> begin
+    -> if new.birthdate is null then
+    -> insert into reminders(memberId,message)
+    -> values(new.id,concat('hi',new.name,'plz update date'));
+    -> end if;
+    -> end //
+ Query OK, 0 rows affected (0.611 sec)
+
+MariaDB [department]> delimiter ;
+
+MariaDB [department]> insert into members values(1,'o','o@gmail.com',null);
+Query OK, 1 row affected (0.082 sec)
+
+MariaDB [department]> select * from reminders;
++----+----------+--------------------+
+| id | memberId | message            |
++----+----------+--------------------+
+|  1 |        1 | hioplz update date |
++----+----------+--------------------+
+1 row in set (0.001 sec)
+
+
+
+
